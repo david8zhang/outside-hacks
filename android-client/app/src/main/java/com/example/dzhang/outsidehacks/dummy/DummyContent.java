@@ -1,5 +1,7 @@
 package com.example.dzhang.outsidehacks.dummy;
 
+import com.example.dzhang.outsidehacks.Friend;
+
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -47,34 +49,5 @@ public class DummyContent {
             builder.append("\nMore tagline information here.");
         }
         return builder.toString();
-    }
-
-    /**
-     * A dummy item representing a piece of username.
-     */
-    public static class Friend {
-        public final String userId;
-        public final String username;
-        public final String tagline;
-        public final int numFriends;
-        public final String[] friendIds;
-        public final String[] interestedArtists;
-        public final int score;
-
-        public Friend(String userId, String username, String tagline, int numFriends,
-                      String[] friendIds, String[] interestedArtists, int score) {
-            this.userId = userId;
-            this.username = username;
-            this.tagline = tagline;
-            this.numFriends = numFriends;
-            this.friendIds = friendIds;
-            this.interestedArtists = interestedArtists;
-            this.score = score;
-        }
-
-        @Override
-        public String toString() {
-            return username;
-        }
     }
 }

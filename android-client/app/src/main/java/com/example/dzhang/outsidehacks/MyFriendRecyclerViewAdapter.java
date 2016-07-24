@@ -11,17 +11,18 @@ import com.example.dzhang.outsidehacks.dummy.DummyContent;
 import java.util.List;
 
 /**
- * {@link RecyclerView.Adapter} that can display a {@link DummyContent.Friend}
+ * {@link RecyclerView.Adapter} that can display a {@link Friend}
  * TODO: Replace the implementation with code for your data type.
  */
 public class MyFriendRecyclerViewAdapter extends RecyclerView.Adapter<MyFriendRecyclerViewAdapter.ViewHolder> {
 
-    private final List<DummyContent.Friend> mValues;
-    //private final OnListFragmentInteractionListener mListener;
+    private final List<Friend> mValues;
+    private final FriendFragment.OnListFragmentInteractionListener mListener;
 
-    public MyFriendRecyclerViewAdapter(List<DummyContent.Friend> items) {
+    public MyFriendRecyclerViewAdapter(List<Friend> items,
+                                       FriendFragment.OnListFragmentInteractionListener listener) {
         mValues = items;
-        //mListener = listener;
+        mListener = listener;
     }
 
     @Override
@@ -36,9 +37,9 @@ public class MyFriendRecyclerViewAdapter extends RecyclerView.Adapter<MyFriendRe
         holder.mItem = mValues.get(position);
         holder.usernameView.setText(mValues.get(position).username);
         holder.taglineView.setText(mValues.get(position).tagline);
-        holder.distanceView.setText("55m");
+        holder.distanceView.setText("22m");
 
-        /*holder.mView.setOnClickListener(new View.OnClickListener() {
+        holder.mView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 if (null != mListener) {
@@ -47,7 +48,7 @@ public class MyFriendRecyclerViewAdapter extends RecyclerView.Adapter<MyFriendRe
                     mListener.onListFragmentInteraction(holder.mItem);
                 }
             }
-        });*/
+        });
     }
 
     @Override
@@ -60,7 +61,7 @@ public class MyFriendRecyclerViewAdapter extends RecyclerView.Adapter<MyFriendRe
         public final TextView usernameView;
         public final TextView taglineView;
         public final TextView distanceView;
-        public DummyContent.Friend mItem;
+        public Friend mItem;
 
         public ViewHolder(View view) {
             super(view);

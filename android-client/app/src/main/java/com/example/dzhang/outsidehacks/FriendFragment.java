@@ -1,6 +1,7 @@
 package com.example.dzhang.outsidehacks;
 
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.GridLayoutManager;
@@ -24,7 +25,7 @@ public class FriendFragment extends Fragment {
     private static final String ARG_COLUMN_COUNT = "column-count";
     // TODO: Customize parameters
     private int mColumnCount = 1;
-    //private OnListFragmentInteractionListener mListener;
+    private OnListFragmentInteractionListener mListener;
 
     /**
      * Mandatory empty constructor for the fragment manager to instantiate the
@@ -66,13 +67,13 @@ public class FriendFragment extends Fragment {
             } else {
                 recyclerView.setLayoutManager(new GridLayoutManager(context, mColumnCount));
             }
-            recyclerView.setAdapter(new MyFriendRecyclerViewAdapter(DummyContent.ITEMS));
+            recyclerView.setAdapter(new MyFriendRecyclerViewAdapter(DummyContent.ITEMS, mListener));
         }
         return view;
     }
 
 
-    /* @Override
+    @Override
     public void onAttach(Context context) {
         super.onAttach(context);
         if (context instanceof OnListFragmentInteractionListener) {
@@ -81,13 +82,13 @@ public class FriendFragment extends Fragment {
             throw new RuntimeException(context.toString()
                     + " must implement OnListFragmentInteractionListener");
         }
-    }*/
+    }
 
-    /*@Override
+    @Override
     public void onDetach() {
         super.onDetach();
-        //mListener = null;
-    }*/
+        mListener = null;
+    }
 
     /**
      * This interface must be implemented by activities that contain this
@@ -99,8 +100,8 @@ public class FriendFragment extends Fragment {
      * "http://developer.android.com/training/basics/fragments/communicating.html"
      * >Communicating with Other Fragments</a> for more information.
      */
-    /*public interface OnListFragmentInteractionListener {
+    public interface OnListFragmentInteractionListener {
         // TODO: Update argument type and username
         void onListFragmentInteraction(Friend item);
-    }*/
+    }
 }
