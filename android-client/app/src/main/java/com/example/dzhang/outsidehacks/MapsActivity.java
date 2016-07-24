@@ -45,7 +45,8 @@ import java.util.Date;
 import java.util.HashMap;
 import java.util.UUID;
 
-public class MapsActivity extends FragmentActivity implements OnMapReadyCallback, GoogleApiClient.ConnectionCallbacks, GoogleApiClient.OnConnectionFailedListener {
+public class MapsActivity extends FragmentActivity
+        implements OnMapReadyCallback, GoogleApiClient.ConnectionCallbacks, GoogleApiClient.OnConnectionFailedListener {
 
     private GoogleMap mMap;
     private HashMap<String, Marker> users = new HashMap<>();
@@ -118,7 +119,6 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
             ActivityCompat.requestPermissions(MapsActivity.this,
                     new String[]{Manifest.permission.ACCESS_FINE_LOCATION},
                     MY_PERMISSIONS_ACCESS_FINE_LOCATION);
-
         }
     }
 
