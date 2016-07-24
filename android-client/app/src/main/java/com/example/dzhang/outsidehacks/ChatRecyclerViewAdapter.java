@@ -49,13 +49,19 @@ public class ChatRecyclerViewAdapter<T extends Message> extends RecyclerView.Ada
 
     @Override
     public void onBindViewHolder(ViewHolder holder, int position) {
-        Log.d("MESSAGE LENGTH", Integer.toString(messages.size()));
         Message message = messages.get(position);
         String text = message.getMessage();
         String status = message.getStatus();
         TextView my_message = holder.textView;
+        System.out.println(position + ", status = " + status + ", message = " + message.getMessage());
         if(status != null) {
-            holder.textView.setBackgroundColor(Color.parseColor("#2F582E"));
+            holder.textView.setBackgroundResource(R.drawable.message_like_rect);
+        }
+        else if (getItemViewType(position) == 0) {
+            holder.textView.setBackgroundResource(R.drawable.message_mine_rect);
+        }
+        else {
+            holder.textView.setBackgroundResource(R.drawable.message_other_rect);
         }
         my_message.setText(text);
     }
