@@ -1,7 +1,6 @@
 package com.example.dzhang.outsidehacks;
 
 import android.content.Context;
-import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.GridLayoutManager;
@@ -67,7 +66,7 @@ public class FriendFragment extends Fragment {
             } else {
                 recyclerView.setLayoutManager(new GridLayoutManager(context, mColumnCount));
             }
-            recyclerView.setAdapter(new MyFriendRecyclerViewAdapter(DummyContent.ITEMS, mListener));
+            recyclerView.setAdapter(new FriendRecyclerViewAdapter(DummyContent.ITEMS, mListener));
         }
         return view;
     }
