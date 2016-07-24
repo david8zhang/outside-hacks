@@ -42,7 +42,8 @@ public class ChatRequestActivity extends AppCompatActivity {
         sendChatRequestButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
+                Intent goToChat = new Intent(ChatRequestActivity.this, ChatActivity.class);
+                ChatRequestActivity.this.startActivity(goToChat);
             }
         });
 

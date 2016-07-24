@@ -39,6 +39,15 @@ public class MainActivity extends AppCompatActivity {
                 GoToFriendList();
             }
         });
+
+        Button goToChatList = (Button)findViewById(R.id.goToChat);
+        goToChatList.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent goToChat = new Intent(MainActivity.this, ChatActivity.class);
+                startActivity(goToChat);
+            }
+        });
     }
 
     private void GoToFriendList() {

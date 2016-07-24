@@ -44,6 +44,7 @@
         <activity android:name=".FriendList" />
         <activity android:name=".ChatRequestActivity" />
         <activity android:name=".LikedArtistsFormActivity"></activity>
+        <activity android:name=".ChatActivity"></activity>
     </application>
 
 </manifest>

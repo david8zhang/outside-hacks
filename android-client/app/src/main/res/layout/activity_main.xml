@@ -3,12 +3,15 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="horizontal"
+    android:weightSum="4"
     tools:context="com.example.dzhang.outsidehacks.MainActivity">
 
     <Button
 
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_weight="1"
         android:text="Go to Map View"
         android:id="@+id/gotomap"/>
 
@@ -16,6 +19,7 @@
         android:id="@+id/goToArtistCheckboxes"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_weight="1"
         android:text="Go to artists" />
 
 
@@ -23,6 +27,14 @@
         android:id="@+id/goToFriendList"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_weight="1"
         android:text="Go to friend list" />
+
+    <Button
+        android:id="@+id/goToChat"
+        android:layout_weight="1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Go to chat"/>
 
 </LinearLayout>
