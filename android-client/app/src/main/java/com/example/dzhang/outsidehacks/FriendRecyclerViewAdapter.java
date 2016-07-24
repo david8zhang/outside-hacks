@@ -6,21 +6,19 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
-import com.example.dzhang.outsidehacks.dummy.DummyContent;
-
 import java.util.List;
 
 /**
  * {@link RecyclerView.Adapter} that can display a {@link Friend}
  * TODO: Replace the implementation with code for your data type.
  */
-public class MyFriendRecyclerViewAdapter extends RecyclerView.Adapter<MyFriendRecyclerViewAdapter.ViewHolder> {
+public class FriendRecyclerViewAdapter extends RecyclerView.Adapter<FriendRecyclerViewAdapter.ViewHolder> {
 
     private final List<Friend> mValues;
     private final FriendFragment.OnListFragmentInteractionListener mListener;
 
-    public MyFriendRecyclerViewAdapter(List<Friend> items,
-                                       FriendFragment.OnListFragmentInteractionListener listener) {
+    public FriendRecyclerViewAdapter(List<Friend> items,
+                                     FriendFragment.OnListFragmentInteractionListener listener) {
         mValues = items;
         mListener = listener;
     }
