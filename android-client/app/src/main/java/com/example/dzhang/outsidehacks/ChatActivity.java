@@ -56,6 +56,27 @@ public class ChatActivity extends AppCompatActivity {
             username = (String)savedInstanceState.getSerializable("user_id");
         }
 
+        Button like = (Button)findViewById(R.id.like);
+        like.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                try {
+                    String message = "LIKED! You've Sent a Like!";
+                    JSONObject obj = new JSONObject();
+                    obj.put("from", Build.ID);
+                    obj.put("target", username);
+                    obj.put("message", message);
+                    obj.put("status", "LIKE");
+                    mSocket.emit("message", obj.toString());
+                    Message render_msg = new Message(Build.ID, username, message, "LIKE");
+                    messages.add(render_msg);
+                    chatViewAdapter.notifyDataSetChanged();
+                } catch(JSONException e) {
+                    e.printStackTrace();
+                }
+            }
+        });
+
 
         messageCompose = (EditText)findViewById(R.id.enter_message);
         Button submitMsg = (Button)findViewById(R.id.submit_message);
@@ -112,15 +133,17 @@ public class ChatActivity extends AppCompatActivity {
                         Log.d("MESSAGES", data.toString());
                         try {
                             Message message = new Message(data.getString("from"), data.getString("target"), data.getString("message"));
-                            messages.add(message);
-                            chatViewAdapter.notifyDataSetChanged();
-                            recyclerView.post(new Runnable() {
-                                @Override
-                                public void run() {
-                                    // Call smooth scroll
-                                    recyclerView.smoothScrollToPosition(chatViewAdapter.getItemCount());
-                                }
-                            });
+                            if(!data.has("status")) {
+                                messages.add(message);
+                                chatViewAdapter.notifyDataSetChanged();
+                                recyclerView.post(new Runnable() {
+                                    @Override
+                                    public void run() {
+                                        // Call smooth scroll
+                                        recyclerView.smoothScrollToPosition(chatViewAdapter.getItemCount());
+                                    }
+                                });
+                            }
                         } catch (JSONException e) {
                             e.printStackTrace();
                         }

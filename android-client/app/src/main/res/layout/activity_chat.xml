@@ -11,13 +11,13 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         xmlns:tools="http://schemas.android.com/tools"
-        tools:listitem="@layout/message_bubble"/>
+        />
 
     <LinearLayout
         android:layout_weight="0.5"
         android:layout_width="match_parent"
         android:orientation="horizontal"
-        android:weightSum="5"
+        android:weightSum="7"
         android:layout_height="wrap_content">
         <EditText
             android:id="@+id/enter_message"
@@ -28,11 +28,28 @@
             android:layout_weight="5"/>
 
         <Button
+            android:textSize="12sp"
+            android:id="@+id/like"
+            android:text="Like"
+            android:layout_weight="1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <Button
+            android:textSize="12sp"
             android:id="@+id/submit_message"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
+            android:layout_weight="0.5"
             android:text="submit"/>
+
+        <Button
+            android:textSize="12sp"
+            android:id="@+id/close"
+            android:text="close"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.5"/>
     </LinearLayout>
 
 </LinearLayout>

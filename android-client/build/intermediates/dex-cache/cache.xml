@@ -2,11 +2,445 @@
 <items version="2" >
 
     <item
+        jar="/Users/dzhang/Desktop/OutsideHacks/android-client/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-tasks/9.2.1/jars/classes.jar"
+        jumboMode="true"
+        revision="24.0.1"
+        sha1="819c2c3a4fb135e085445d11131d069cf9c32b2a">
+        <dex dex="/Users/dzhang/Desktop/OutsideHacks/android-client/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.google.android.gms-play-services-tasks-9.2.1_208fa0b70ab11123c41b6830abdd1fe40a258aa8/classes.dex" />
+    </item>
+    <item
+        jar="/Users/dzhang/Desktop/OutsideHacks/android-client/app/build/intermediates/exploded-aar/com.android.support/support-vector-drawable/24.1.1/jars/classes.jar"
+        jumboMode="true"
+        revision="24.0.1"
+        sha1="f62e763609f65e47dc6c498760a4accf02776788">
+        <dex dex="/Users/dzhang/Desktop/OutsideHacks/android-client/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-support-vector-drawable-24.1.1_08c1b24596959685c74773fb3a343bb0351d9d92/classes.dex" />
+    </item>
+    <item
+        jar="/Users/dzhang/Desktop/OutsideHacks/android-client/app/build/intermediates/exploded-aar/com.google.firebase/firebase-analytics/9.2.1/jars/classes.jar"
+        jumboMode="true"
+        revision="24.0.1"
+        sha1="6a0f2d219f82db499ac03d5a985c4eb3e83fc422">
+        <dex dex="/Users/dzhang/Desktop/OutsideHacks/android-client/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.google.firebase-firebase-analytics-9.2.1_69144e8a33ccfefe1ce48a643d0989969463629f/classes.dex" />
+    </item>
+    <item
+        jar="/Users/dzhang/Desktop/OutsideHacks/android-client/app/build/intermediates/exploded-aar/com.google.firebase/firebase-auth-module/9.2.1/jars/classes.jar"
+        jumboMode="true"
+        revision="24.0.1"
+        sha1="35a01d7cb4ff6b5976777bf5827fd8f206fb8757">
+        <dex dex="/Users/dzhang/Desktop/OutsideHacks/android-client/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.google.firebase-firebase-auth-module-9.2.1_821916da449468e4c803712e703e4033f1b3d2d0/classes.dex" />
+    </item>
+    <item
+        jar="/Users/dzhang/Desktop/OutsideHacks/android-client/app/build/intermediates/exploded-aar/com.google.firebase/firebase-iid/9.2.1/jars/classes.jar"
+        jumboMode="true"
+        revision="24.0.1"
+        sha1="d41b5d21cc9dd7d210f0ae82ac509ba7f091d611">
+        <dex dex="/Users/dzhang/Desktop/OutsideHacks/android-client/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.google.firebase-firebase-iid-9.2.1_b300f98b4d956fc7af37fa37023e42a8f1798ce2/classes.dex" />
+    </item>
+    <item
+        jar="/Users/dzhang/.gradle/caches/modules-2/files-2.1/org.java-websocket/Java-WebSocket/1.3.0/db2658f013fb163de4a99274c2eb9e17efe535d2/Java-WebSocket-1.3.0.jar"
+        jumboMode="true"
+        revision="24.0.1"
+        sha1="db2658f013fb163de4a99274c2eb9e17efe535d2">
+        <dex dex="/Users/dzhang/Desktop/OutsideHacks/android-client/app/build/intermediates/transforms/dex/debug/folders/1000/10/Java-WebSocket-1.3.0_332717f58391c990ba9bc9d24eb5695e0076288f/classes.dex" />
+    </item>
+    <item
+        jar="/Users/dzhang/Desktop/OutsideHacks/android-client/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-safetynet/9.2.1/jars/classes.jar"
+        jumboMode="true"
+        revision="24.0.1"
+        sha1="4b515e6e269bfe848f5b43ac09bce54d6617d4fd">
+        <dex dex="/Users/dzhang/Desktop/OutsideHacks/android-client/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.google.android.gms-play-services-safetynet-9.2.1_3e65fee2ea84e7238c380590a81329e825452661/classes.dex" />
+    </item>
+    <item
+        jar="/Users/dzhang/Desktop/OutsideHacks/android-client/app/build/intermediates/exploded-aar/com.google.firebase/firebase-auth-common/9.2.1/jars/classes.jar"
+        jumboMode="true"
+        revision="24.0.1"
+        sha1="ee409046028e5657a2a69edaa2eba00d6511a74c">
+        <dex dex="/Users/dzhang/Desktop/OutsideHacks/android-client/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.google.firebase-firebase-auth-common-9.2.1_e793197a1f5f64906a4414b5d763b52c519e8b6f/classes.dex" />
+    </item>
+    <item
+        jar="/Users/dzhang/Desktop/OutsideHacks/android-client/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-identity/9.2.1/jars/classes.jar"
+        jumboMode="true"
+        revision="24.0.1"
+        sha1="152cba5ca28fd4a5191a8577a0fa96d61122041e">
+        <dex dex="/Users/dzhang/Desktop/OutsideHacks/android-client/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.google.android.gms-play-services-identity-9.2.1_8cf95282c0c3741287fba5e7c1128f15e8830013/classes.dex" />
+    </item>
+    <item
+        jar="/Users/dzhang/Desktop/OutsideHacks/android-client/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/24.1.1/jars/classes.jar"
+        jumboMode="true"
+        revision="24.0.1"
+        sha1="1256c10604bb098490eab070d76754ac5ceab35c">
+        <dex dex="/Users/dzhang/Desktop/OutsideHacks/android-client/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-appcompat-v7-24.1.1_da56ed17a3614a500159dc898ec0899896160f5b/classes.dex" />
+    </item>
+    <item
+        jar="/Users/dzhang/Desktop/OutsideHacks/android-client/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-ads-lite/9.2.1/jars/classes.jar"
+        jumboMode="true"
+        revision="24.0.1"
+        sha1="310ef01419435979cc82847cf085799a8d00e7e9">
+        <dex dex="/Users/dzhang/Desktop/OutsideHacks/android-client/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.google.android.gms-play-services-ads-lite-9.2.1_d0bbeb54b3f1f28f225e034d027ce02e029180da/classes.dex" />
+    </item>
+    <item
+        jar="/Users/dzhang/Desktop/OutsideHacks/android-client/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-iid/9.2.1/jars/classes.jar"
+        jumboMode="true"
+        revision="24.0.1"
+        sha1="a65d98c9409f271d3209f4cc1f7d8e0391665fa5">
+        <dex dex="/Users/dzhang/Desktop/OutsideHacks/android-client/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.google.android.gms-play-services-iid-9.2.1_fbc29d8391a1342c1f131a5e5dda9de9f186ece1/classes.dex" />
+    </item>
+    <item
+        jar="/Users/dzhang/Desktop/OutsideHacks/android-client/app/build/intermediates/exploded-aar/com.google.firebase/firebase-crash/9.2.1/jars/classes.jar"
+        jumboMode="true"
+        revision="24.0.1"
+        sha1="6c09228ff931eb30b68dd27fe34ed90d978b6892">
+        <dex dex="/Users/dzhang/Desktop/OutsideHacks/android-client/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.google.firebase-firebase-crash-9.2.1_497b8eee04937731903c5d1e85bb03278dd66e3a/classes.dex" />
+    </item>
+    <item
+        jar="/Users/dzhang/Desktop/OutsideHacks/android-client/app/build/intermediates/exploded-aar/com.android.support/design/24.1.1/jars/classes.jar"
+        jumboMode="true"
+        revision="24.0.1"
+        sha1="e195bd694d5389acfba27ff4fdfa64c4c65b2c05">
+        <dex dex="/Users/dzhang/Desktop/OutsideHacks/android-client/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-design-24.1.1_0506a2d210185cc63a6a88c1caea8f52c5467e38/classes.dex" />
+    </item>
+    <item
+        jar="/Users/dzhang/Desktop/OutsideHacks/android-client/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-fitness/9.2.1/jars/classes.jar"
+        jumboMode="true"
+        revision="24.0.1"
+        sha1="d064f813cd835f17853e39221b247cf6a997a2db">
+        <dex dex="/Users/dzhang/Desktop/OutsideHacks/android-client/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.google.android.gms-play-services-fitness-9.2.1_efe1534f3479851af57b27695a9042f9d118fa69/classes.dex" />
+    </item>
+    <item
+        jar="/Users/dzhang/Desktop/OutsideHacks/android-client/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-places/9.2.1/jars/classes.jar"
+        jumboMode="true"
+        revision="24.0.1"
+        sha1="0979debb5b4d955ddc0e80bb192f4f00c2f91750">
+        <dex dex="/Users/dzhang/Desktop/OutsideHacks/android-client/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.google.android.gms-play-services-places-9.2.1_3c4dc30dfa1afdbd164ac5789bec7c14a026ca87/classes.dex" />
+    </item>
+    <item
+        jar="/Users/dzhang/Desktop/OutsideHacks/android-client/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-auth/9.2.1/jars/classes.jar"
+        jumboMode="true"
+        revision="24.0.1"
+        sha1="e1bec33f1ec5367e25676638b430b9d585f3dbec">
+        <dex dex="/Users/dzhang/Desktop/OutsideHacks/android-client/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.google.android.gms-play-services-auth-9.2.1_8a754bddc88b804ae261a788ef19192ccaba061c/classes.dex" />
+    </item>
+    <item
+        jar="/Users/dzhang/Desktop/OutsideHacks/android-client/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-gass/9.2.1/jars/classes.jar"
+        jumboMode="true"
+        revision="24.0.1"
+        sha1="081ced8ab77e606b6743c27cfe93dc450447b046">
+        <dex dex="/Users/dzhang/Desktop/OutsideHacks/android-client/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.google.android.gms-play-services-gass-9.2.1_28a44fee81193028d6e667d02274a49e37c2e12a/classes.dex" />
+    </item>
+    <item
+        jar="/Users/dzhang/Library/Android/sdk/extras/android/m2repository/com/android/support/support-annotations/24.1.1/support-annotations-24.1.1.jar"
+        jumboMode="true"
+        revision="24.0.1"
+        sha1="3af19f153122737b372622fa6c81dd11a1c6b999">
+        <dex dex="/Users/dzhang/Desktop/OutsideHacks/android-client/app/build/intermediates/transforms/dex/debug/folders/1000/10/support-annotations-24.1.1_9a664cf9aa8cb3c01387d09cd2650ea689bf1647/classes.dex" />
+    </item>
+    <item
+        jar="/Users/dzhang/Desktop/OutsideHacks/android-client/app/build/intermediates/exploded-aar/com.google.firebase/firebase-messaging/9.2.1/jars/classes.jar"
+        jumboMode="true"
+        revision="24.0.1"
+        sha1="ac78f93fc89c497a65f9d9a352cd405996d2f65a">
+        <dex dex="/Users/dzhang/Desktop/OutsideHacks/android-client/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.google.firebase-firebase-messaging-9.2.1_f64029b33f5c0a016c2426064eea6a7ef3d9b8c8/classes.dex" />
+    </item>
+    <item
+        jar="/Users/dzhang/Desktop/OutsideHacks/android-client/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-ads/9.2.1/jars/classes.jar"
+        jumboMode="true"
+        revision="24.0.1"
+        sha1="6d2f508d1a9fa0fbe1653595e484800c08afb42c">
+        <dex dex="/Users/dzhang/Desktop/OutsideHacks/android-client/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.google.android.gms-play-services-ads-9.2.1_c2bf6bc96cef512f93d5ea1faeed21b578d09fa7/classes.dex" />
+    </item>
+    <item
+        jar="/Users/dzhang/Desktop/OutsideHacks/android-client/app/build/intermediates/exploded-aar/com.google.firebase/firebase-storage-common/9.2.1/jars/classes.jar"
+        jumboMode="true"
+        revision="24.0.1"
+        sha1="36e2b438f9b0d68fb2482c8f389e249e32840cff">
+        <dex dex="/Users/dzhang/Desktop/OutsideHacks/android-client/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.google.firebase-firebase-storage-common-9.2.1_43e43bfd7393d91372bdeb934dc9b1854093ff33/classes.dex" />
+    </item>
+    <item
+        jar="/Users/dzhang/Desktop/OutsideHacks/android-client/app/build/intermediates/exploded-aar/com.google.firebase/firebase-analytics-impl/9.2.1/jars/classes.jar"
+        jumboMode="true"
+        revision="24.0.1"
+        sha1="5337354083e89ed67151859ab0b6b80935c60eaf">
+        <dex dex="/Users/dzhang/Desktop/OutsideHacks/android-client/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.google.firebase-firebase-analytics-impl-9.2.1_9a95a1fa2e6d3203040902cb78aabc7f2e28e11a/classes.dex" />
+    </item>
+    <item
+        jar="/Users/dzhang/Desktop/OutsideHacks/android-client/app/build/intermediates/exploded-aar/com.android.support/support-v4/24.1.1/jars/classes.jar"
+        jumboMode="true"
+        revision="24.0.1"
+        sha1="6d7d803871e3203465f71a163e7af104f807b446">
+        <dex dex="/Users/dzhang/Desktop/OutsideHacks/android-client/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-support-v4-24.1.1_866da8e8227078cf9dbd963b6a7830039d97b68a/classes.dex" />
+    </item>
+    <item
+        jar="/Users/dzhang/Desktop/OutsideHacks/android-client/app/build/intermediates/exploded-aar/com.android.support/animated-vector-drawable/24.1.1/jars/classes.jar"
+        jumboMode="true"
+        revision="24.0.1"
+        sha1="c936c1bd42f0c018c18920c7bec619ef056b24f8">
+        <dex dex="/Users/dzhang/Desktop/OutsideHacks/android-client/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-animated-vector-drawable-24.1.1_8f20586e16e24683cfab401ad4d1b9379830ed1c/classes.dex" />
+    </item>
+    <item
+        jar="/Users/dzhang/Desktop/OutsideHacks/android-client/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-nearby/9.2.1/jars/classes.jar"
+        jumboMode="true"
+        revision="24.0.1"
+        sha1="0765979e802b1669c90dc36076559461d5eb6ad1">
+        <dex dex="/Users/dzhang/Desktop/OutsideHacks/android-client/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.google.android.gms-play-services-nearby-9.2.1_dd425fb7cc294fb42706b629187949d98f390045/classes.dex" />
+    </item>
+    <item
+        jar="/Users/dzhang/Desktop/OutsideHacks/android-client/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-wearable/9.2.1/jars/classes.jar"
+        jumboMode="true"
+        revision="24.0.1"
+        sha1="dd1907a2e855eeb2be8aa3486f3d4d4f1c8b22af">
+        <dex dex="/Users/dzhang/Desktop/OutsideHacks/android-client/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.google.android.gms-play-services-wearable-9.2.1_ef2101b56557a4459b631f44c202f585b4508548/classes.dex" />
+    </item>
+    <item
+        jar="/Users/dzhang/Desktop/OutsideHacks/android-client/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-maps/9.2.1/jars/classes.jar"
+        jumboMode="true"
+        revision="24.0.1"
+        sha1="bbd51be332bace144b3d16501ec0af379c3c8750">
+        <dex dex="/Users/dzhang/Desktop/OutsideHacks/android-client/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.google.android.gms-play-services-maps-9.2.1_6515e119e41385d8598d58fa37994835e6b5dde7/classes.dex" />
+    </item>
+    <item
+        jar="/Users/dzhang/.gradle/caches/modules-2/files-2.1/com.github.nkzawa/engine.io-client/0.3.1/3ca9d0d53a27ecb88538ed874be417cfa827db5d/engine.io-client-0.3.1.jar"
+        jumboMode="true"
+        revision="24.0.1"
+        sha1="3ca9d0d53a27ecb88538ed874be417cfa827db5d">
+        <dex dex="/Users/dzhang/Desktop/OutsideHacks/android-client/app/build/intermediates/transforms/dex/debug/folders/1000/10/engine.io-client-0.3.1_2c9769edba5ec1a868f182b7a46e91ea1ef1e742/classes.dex" />
+    </item>
+    <item
+        jar="/Users/dzhang/Desktop/OutsideHacks/android-client/app/build/intermediates/exploded-aar/com.android.support/recyclerview-v7/24.1.1/jars/classes.jar"
+        jumboMode="true"
+        revision="24.0.1"
+        sha1="787871951412550519b0222aba3c9df4cea49875">
+        <dex dex="/Users/dzhang/Desktop/OutsideHacks/android-client/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-recyclerview-v7-24.1.1_19c3c418764a260b47ffb4ca1353f30d72f1d3fd/classes.dex" />
+    </item>
+    <item
+        jar="/Users/dzhang/Desktop/OutsideHacks/android-client/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-analytics/9.2.1/jars/classes.jar"
+        jumboMode="true"
+        revision="24.0.1"
+        sha1="357a8702c49044417d4856861c8f435e7c74ef09">
+        <dex dex="/Users/dzhang/Desktop/OutsideHacks/android-client/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.google.android.gms-play-services-analytics-9.2.1_9ac83e19519ef974b0704c92feee6d8622bc95cb/classes.dex" />
+    </item>
+    <item
+        jar="/Users/dzhang/Desktop/OutsideHacks/android-client/app/build/intermediates/exploded-aar/com.google.firebase/firebase-database-connection/9.2.1/jars/classes.jar"
+        jumboMode="true"
+        revision="24.0.1"
+        sha1="05d2e01f33fb2097b51fce3f938dc37a75fe2d6b">
+        <dex dex="/Users/dzhang/Desktop/OutsideHacks/android-client/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.google.firebase-firebase-database-connection-9.2.1_04c35711304546ca4d22ed6313afea102b579283/classes.dex" />
+    </item>
+    <item
+        jar="/Users/dzhang/Desktop/OutsideHacks/android-client/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-panorama/9.2.1/jars/classes.jar"
+        jumboMode="true"
+        revision="24.0.1"
+        sha1="05a2710d284c03087013a667a324c9e2aba5bc91">
+        <dex dex="/Users/dzhang/Desktop/OutsideHacks/android-client/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.google.android.gms-play-services-panorama-9.2.1_7ec691b2efdc0378a1335e9e35686f8b3d57e966/classes.dex" />
+    </item>
+    <item
+        jar="/Users/dzhang/Desktop/OutsideHacks/android-client/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-plus/9.2.1/jars/classes.jar"
+        jumboMode="true"
+        revision="24.0.1"
+        sha1="def5530cb13311617fc8f962e2a90225bb6904e2">
+        <dex dex="/Users/dzhang/Desktop/OutsideHacks/android-client/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.google.android.gms-play-services-plus-9.2.1_dc4a32af787493809d9a2f504c2befd2a401a62b/classes.dex" />
+    </item>
+    <item
+        jar="/Users/dzhang/Desktop/OutsideHacks/android-client/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-clearcut/9.2.1/jars/classes.jar"
+        jumboMode="true"
+        revision="24.0.1"
+        sha1="90eeba67a669f8fb24db0f821ef81703fe7a02bc">
+        <dex dex="/Users/dzhang/Desktop/OutsideHacks/android-client/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.google.android.gms-play-services-clearcut-9.2.1_d506e3c150befe7a14ba376437daf284d5bcaad5/classes.dex" />
+    </item>
+    <item
+        jar="/Users/dzhang/Desktop/OutsideHacks/android-client/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-wallet/9.2.1/jars/classes.jar"
+        jumboMode="true"
+        revision="24.0.1"
+        sha1="8aada8a0e9e9b3ecdda5e80f17c6a51a468e302a">
+        <dex dex="/Users/dzhang/Desktop/OutsideHacks/android-client/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.google.android.gms-play-services-wallet-9.2.1_30a6938a53bc2c6b62d7b0f94bc1616e0c37e9bb/classes.dex" />
+    </item>
+    <item
+        jar="/Users/dzhang/Desktop/OutsideHacks/android-client/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-cast-framework/9.2.1/jars/classes.jar"
+        jumboMode="true"
+        revision="24.0.1"
+        sha1="9f2282b9fc24f24c69665032dede1bc7201cf006">
+        <dex dex="/Users/dzhang/Desktop/OutsideHacks/android-client/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.google.android.gms-play-services-cast-framework-9.2.1_a126219f1c36a820c4c90028c8f324df773bcf64/classes.dex" />
+    </item>
+    <item
+        jar="/Users/dzhang/Desktop/OutsideHacks/android-client/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-games/9.2.1/jars/classes.jar"
+        jumboMode="true"
+        revision="24.0.1"
+        sha1="4c2b01baa64ba25f8dbdf7f7f828bc5664dab55e">
+        <dex dex="/Users/dzhang/Desktop/OutsideHacks/android-client/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.google.android.gms-play-services-games-9.2.1_04e65ee0231c13faa09ec83041accac2cf66601a/classes.dex" />
+    </item>
+    <item
+        jar="/Users/dzhang/Desktop/OutsideHacks/android-client/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-location/9.2.1/jars/classes.jar"
+        jumboMode="true"
+        revision="24.0.1"
+        sha1="07c569a77f437c5c71eac8b1b636a50bebb69a93">
+        <dex dex="/Users/dzhang/Desktop/OutsideHacks/android-client/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.google.android.gms-play-services-location-9.2.1_1690622f32272ec80fe62645c97aec9fd2511a6f/classes.dex" />
+    </item>
+    <item
+        jar="/Users/dzhang/Desktop/OutsideHacks/android-client/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-basement/9.2.1/jars/classes.jar"
+        jumboMode="true"
+        revision="24.0.1"
+        sha1="6b896c1067633db41e9c10a3a5d0919c5c4cfc8c">
+        <dex dex="/Users/dzhang/Desktop/OutsideHacks/android-client/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.google.android.gms-play-services-basement-9.2.1_12fd21b74fd9f7e457cf55dd553f5fa49dc19bdc/classes.dex" />
+    </item>
+    <item
+        jar="/Users/dzhang/Desktop/OutsideHacks/android-client/app/build/intermediates/exploded-aar/com.android.support/mediarouter-v7/23.0.0/jars/classes.jar"
+        jumboMode="true"
+        revision="24.0.1"
+        sha1="d358b3dd49a7c67844622dcbc9cf4339e13952ce">
+        <dex dex="/Users/dzhang/Desktop/OutsideHacks/android-client/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-mediarouter-v7-23.0.0_705b65faa41b4e14acf6ce514b0ef9d2210bf3c5/classes.dex" />
+    </item>
+    <item
+        jar="/Users/dzhang/Desktop/OutsideHacks/android-client/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-appindexing/9.2.1/jars/classes.jar"
+        jumboMode="true"
+        revision="24.0.1"
+        sha1="ee19e33a798d11a5cf309a40155b8223fadcdeea">
+        <dex dex="/Users/dzhang/Desktop/OutsideHacks/android-client/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.google.android.gms-play-services-appindexing-9.2.1_938206c9dff0d98e06b01990e87a3f8dcd043aa3/classes.dex" />
+    </item>
+    <item
+        jar="/Users/dzhang/Desktop/OutsideHacks/android-client/app/build/intermediates/exploded-aar/com.google.firebase/firebase-storage/9.2.1/jars/classes.jar"
+        jumboMode="true"
+        revision="24.0.1"
+        sha1="e719de687ac45141de3dd613907860a495580af0">
+        <dex dex="/Users/dzhang/Desktop/OutsideHacks/android-client/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.google.firebase-firebase-storage-9.2.1_b898819bcd01b25a37b67101ce2b16d75df1ce68/classes.dex" />
+    </item>
+    <item
+        jar="/Users/dzhang/Desktop/OutsideHacks/android-client/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-base/9.2.1/jars/classes.jar"
+        jumboMode="true"
+        revision="24.0.1"
+        sha1="421b36cf4f0d3bbd75e8f28647fccf36674ef049">
+        <dex dex="/Users/dzhang/Desktop/OutsideHacks/android-client/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.google.android.gms-play-services-base-9.2.1_40efcbb17697823c8e485b93dace22063c9e9244/classes.dex" />
+    </item>
+    <item
+        jar="/Users/dzhang/Desktop/OutsideHacks/android-client/app/build/intermediates/incremental-runtime-classes/debug/instant-run.jar"
+        jumboMode="true"
+        revision="24.0.1"
+        sha1="0933effe6c3df6aee1d4404938c08baf46758010">
+        <dex dex="/Users/dzhang/Desktop/OutsideHacks/android-client/app/build/intermediates/transforms/dex/debug/folders/1000/10/instant-run_820e752ef494114c05345b3d9257d085e6dbac53/classes.dex" />
+    </item>
+    <item
         jar="/Users/dzhang/Desktop/OutsideHacks/android-client/app/build/intermediates/incremental-classes/debug/instant-run-bootstrap.jar"
         jumboMode="true"
         revision="24.0.1"
-        sha1="9edff876548b3d0bd6475651f1db39c49f1b44a4">
+        sha1="13dd0974fd9da87d4124e689791894f5e794d393">
         <dex dex="/Users/dzhang/Desktop/OutsideHacks/android-client/app/build/intermediates/transforms/dex/debug/folders/1000/10/instant-run-bootstrap_b11de3b56d09eac5b80f32f95aed3e276f338b6b/classes.dex" />
+    </item>
+    <item
+        jar="/Users/dzhang/Desktop/OutsideHacks/android-client/app/build/intermediates/exploded-aar/com.android.support/support-v4/24.1.1/jars/libs/internal_impl-24.1.1.jar"
+        jumboMode="true"
+        revision="24.0.1"
+        sha1="f78c2f395cb096f9dc1dc07e729922b8fcd3c4f5">
+        <dex dex="/Users/dzhang/Desktop/OutsideHacks/android-client/app/build/intermediates/transforms/dex/debug/folders/1000/10/internal_impl-24.1.1_53cda81b5da09f510ac67b574399f096a531356d/classes.dex" />
+    </item>
+    <item
+        jar="/Users/dzhang/Desktop/OutsideHacks/android-client/app/build/intermediates/exploded-aar/com.google.firebase/firebase-database/9.2.1/jars/classes.jar"
+        jumboMode="true"
+        revision="24.0.1"
+        sha1="f06a0705d7b8b9d18b00d056fe0e07bec75514e6">
+        <dex dex="/Users/dzhang/Desktop/OutsideHacks/android-client/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.google.firebase-firebase-database-9.2.1_b642abc7276043a0f6cf744bbcc91fb2476c1ec5/classes.dex" />
+    </item>
+    <item
+        jar="/Users/dzhang/Desktop/OutsideHacks/android-client/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-tagmanager/9.2.1/jars/classes.jar"
+        jumboMode="true"
+        revision="24.0.1"
+        sha1="b24c1a80d8ccaecee7b8b80209b4e273dc22b14d">
+        <dex dex="/Users/dzhang/Desktop/OutsideHacks/android-client/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.google.android.gms-play-services-tagmanager-9.2.1_d29c7cb9e914100ce0f3f50b5eaaf5ac14c22324/classes.dex" />
+    </item>
+    <item
+        jar="/Users/dzhang/Desktop/OutsideHacks/android-client/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-contextmanager/9.2.1/jars/classes.jar"
+        jumboMode="true"
+        revision="24.0.1"
+        sha1="ccc963cafe59ce185c49f47baff7eedcb8589bdf">
+        <dex dex="/Users/dzhang/Desktop/OutsideHacks/android-client/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.google.android.gms-play-services-contextmanager-9.2.1_a35957d48db03e60e2ec892452310bc41533fbd2/classes.dex" />
+    </item>
+    <item
+        jar="/Users/dzhang/.gradle/caches/modules-2/files-2.1/com.github.nkzawa/socket.io-client/0.3.0/8dfd7cf8d1124acb027b3ffd53eafcc518af3ba9/socket.io-client-0.3.0.jar"
+        jumboMode="true"
+        revision="24.0.1"
+        sha1="8dfd7cf8d1124acb027b3ffd53eafcc518af3ba9">
+        <dex dex="/Users/dzhang/Desktop/OutsideHacks/android-client/app/build/intermediates/transforms/dex/debug/folders/1000/10/socket.io-client-0.3.0_8587b028ede0235064638ec15fe327888c1eba06/classes.dex" />
+    </item>
+    <item
+        jar="/Users/dzhang/Desktop/OutsideHacks/android-client/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-drive/9.2.1/jars/classes.jar"
+        jumboMode="true"
+        revision="24.0.1"
+        sha1="89ab748a6c0ab6ac1d3671f2356d6181e8108bc5">
+        <dex dex="/Users/dzhang/Desktop/OutsideHacks/android-client/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.google.android.gms-play-services-drive-9.2.1_5e2a0bc3261a74339d0d17c9a7271e88a92e4735/classes.dex" />
+    </item>
+    <item
+        jar="/Users/dzhang/Desktop/OutsideHacks/android-client/app/build/intermediates/exploded-aar/com.android.support/mediarouter-v7/23.0.0/jars/libs/internal_impl-23.0.0.jar"
+        jumboMode="true"
+        revision="24.0.1"
+        sha1="03d38bb042efe3e5ce27ba66b729a9523c36d8fe">
+        <dex dex="/Users/dzhang/Desktop/OutsideHacks/android-client/app/build/intermediates/transforms/dex/debug/folders/1000/10/internal_impl-23.0.0_c06385ee7cecdc30d9851b0f2987a2bad8b5be3a/classes.dex" />
+    </item>
+    <item
+        jar="/Users/dzhang/Desktop/OutsideHacks/android-client/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-auth-base/9.2.1/jars/classes.jar"
+        jumboMode="true"
+        revision="24.0.1"
+        sha1="48917c60ea81213ea39cbd7123996a5401106dc3">
+        <dex dex="/Users/dzhang/Desktop/OutsideHacks/android-client/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.google.android.gms-play-services-auth-base-9.2.1_e191bbc6d6406cd5fd44b51ff8be2a9e1d41c94f/classes.dex" />
+    </item>
+    <item
+        jar="/Users/dzhang/Desktop/OutsideHacks/android-client/app/build/intermediates/exploded-aar/com.google.firebase/firebase-common/9.2.1/jars/classes.jar"
+        jumboMode="true"
+        revision="24.0.1"
+        sha1="3627eacd7f7cafb5e8ae683992e7b2f9b7dcab1a">
+        <dex dex="/Users/dzhang/Desktop/OutsideHacks/android-client/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.google.firebase-firebase-common-9.2.1_b44b816ee5cfbbfb431cbc13f53495f0fcd8080b/classes.dex" />
+    </item>
+    <item
+        jar="/Users/dzhang/Desktop/OutsideHacks/android-client/app/build/intermediates/exploded-aar/com.google.firebase/firebase-config/9.2.1/jars/classes.jar"
+        jumboMode="true"
+        revision="24.0.1"
+        sha1="7bb417e9ac8645285342935679e75d371b58b62b">
+        <dex dex="/Users/dzhang/Desktop/OutsideHacks/android-client/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.google.firebase-firebase-config-9.2.1_e0b362e2bd2adb3bd43aed5981e801984aa32a1c/classes.dex" />
+    </item>
+    <item
+        jar="/Users/dzhang/Desktop/OutsideHacks/android-client/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-analytics-impl/9.2.1/jars/classes.jar"
+        jumboMode="true"
+        revision="24.0.1"
+        sha1="1141496362c8876f0da4b645fbaf22c0a3618372">
+        <dex dex="/Users/dzhang/Desktop/OutsideHacks/android-client/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.google.android.gms-play-services-analytics-impl-9.2.1_213355674f63c947dc3c8042b4eb137333678dfb/classes.dex" />
+    </item>
+    <item
+        jar="/Users/dzhang/Desktop/OutsideHacks/android-client/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-vision/9.2.1/jars/classes.jar"
+        jumboMode="true"
+        revision="24.0.1"
+        sha1="3a42c5696fa39930d39770f7e5552a9c965fbe09">
+        <dex dex="/Users/dzhang/Desktop/OutsideHacks/android-client/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.google.android.gms-play-services-vision-9.2.1_b0d569e78bcd161f0cefd2b6975ff78c94da46e8/classes.dex" />
+    </item>
+    <item
+        jar="/Users/dzhang/Desktop/OutsideHacks/android-client/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-gcm/9.2.1/jars/classes.jar"
+        jumboMode="true"
+        revision="24.0.1"
+        sha1="edf9a22ebf25281619265079aec8f5d433da1a5c">
+        <dex dex="/Users/dzhang/Desktop/OutsideHacks/android-client/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.google.android.gms-play-services-gcm-9.2.1_0b26a7e8bb5727658697d37c2d48425104cfb8f8/classes.dex" />
+    </item>
+    <item
+        jar="/Users/dzhang/Desktop/OutsideHacks/android-client/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-cast/9.2.1/jars/classes.jar"
+        jumboMode="true"
+        revision="24.0.1"
+        sha1="428c9bac95b2f72921224e289553a04bea61cda5">
+        <dex dex="/Users/dzhang/Desktop/OutsideHacks/android-client/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.google.android.gms-play-services-cast-9.2.1_e353619fb9292b5235046bf83a11be298679c49b/classes.dex" />
+    </item>
+    <item
+        jar="/Users/dzhang/Desktop/OutsideHacks/android-client/app/build/intermediates/exploded-aar/com.google.firebase/firebase-auth/9.2.1/jars/classes.jar"
+        jumboMode="true"
+        revision="24.0.1"
+        sha1="2506c5893e125e2f9cfc522378e893620c21b109">
+        <dex dex="/Users/dzhang/Desktop/OutsideHacks/android-client/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.google.firebase-firebase-auth-9.2.1_5075e60f4cb2b1aad52601ed83c168da2d8e714d/classes.dex" />
+    </item>
+    <item
+        jar="/Users/dzhang/Desktop/OutsideHacks/android-client/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-appinvite/9.2.1/jars/classes.jar"
+        jumboMode="true"
+        revision="24.0.1"
+        sha1="f3b0ff905873c91ab64addba30cc1e77bed34c4d">
+        <dex dex="/Users/dzhang/Desktop/OutsideHacks/android-client/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.google.android.gms-play-services-appinvite-9.2.1_42ab94f595165ac0fe72e1267af2603127f1b316/classes.dex" />
+    </item>
+    <item
+        jar="/Users/dzhang/Desktop/OutsideHacks/android-client/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-tagmanager-api/9.2.1/jars/classes.jar"
+        jumboMode="true"
+        revision="24.0.1"
+        sha1="77e2e4803396fa79009ace04d9be84184aafcc31">
+        <dex dex="/Users/dzhang/Desktop/OutsideHacks/android-client/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.google.android.gms-play-services-tagmanager-api-9.2.1_dc6156af37f7a336483d95b03e0c6270bdb50729/classes.dex" />
     </item>
 
 </items>

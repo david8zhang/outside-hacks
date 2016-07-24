@@ -65,7 +65,7 @@ public class ChatRequestActivity extends AppCompatActivity {
                     obj.put("target", username);
                     obj.put("status", "PENDING");
                     mSocket.emit("requests", obj.toString());
-                    DataManager.requests.add(new Request(Build.ID, username));
+                    DataManager.requests.add(new Request(Build.ID, username, "PENDING"));
                     onBackPressed();
                 } catch(JSONException e) {
                     e.printStackTrace();

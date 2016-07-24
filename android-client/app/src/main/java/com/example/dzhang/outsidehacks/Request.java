@@ -24,8 +24,19 @@ public class Request {
     public String from;
     public String target;
 
-    public Request(String from, String target) {
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
+    }
+
+    public String status;
+
+    public Request(String from, String target, String status) {
         this.from = from;
         this.target = target;
+        this.status = status;
     }
 }

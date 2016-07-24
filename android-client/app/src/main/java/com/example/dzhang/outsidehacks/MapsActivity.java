@@ -369,7 +369,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                         JSONObject data = (JSONObject)args[0];
                         Log.d("REQUESTS", data.toString());
                         try {
-                            Request req = new Request(data.getString("from"), data.getString("target"));
+                            Request req = new Request(data.getString("from"), data.getString("target"), data.getString("status"));
                             for(int i = 0; i < DataManager.requests.size(); i++) {
                                 Request pending = DataManager.requests.get(i);
                                 if(pending.target.equals(data.getString("from"))) {

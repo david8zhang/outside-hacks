@@ -12,8 +12,14 @@ import android.widget.Button;
 import android.widget.TextView;
 
 
+import com.github.nkzawa.socketio.client.IO;
+import com.github.nkzawa.socketio.client.Socket;
+
+import org.json.JSONException;
+import org.json.JSONObject;
 import org.w3c.dom.Text;
 
+import java.net.URISyntaxException;
 import java.util.ArrayList;
 
 /**
@@ -23,6 +29,12 @@ public class RequestRecyclerViewAdapter extends RecyclerView.Adapter<RequestRecy
 
     private ArrayList<Request> requests = new ArrayList<>();
     private Context context;
+    private Socket mSocket;
+    {
+        try {
+            mSocket = IO.socket(Constants.SOCKET_URL);
+        } catch (URISyntaxException e) {}
+    }
 
     public RequestRecyclerViewAdapter(ArrayList<Request> requests, Context context) {
         this.requests = requests;
@@ -53,6 +65,18 @@ public class RequestRecyclerViewAdapter extends RecyclerView.Adapter<RequestRecy
             confirm.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
+                    boolean noConfirm = false;
+                    if(req.getStatus() != "ACCEPTED") {
+                        JSONObject obj = new JSONObject();
+                        try {
+                            obj.put("from", Build.ID);
+                            obj.put("target", req.getFrom());
+                            obj.put("status", "ACCEPTED");
+                            mSocket.emit("requests", obj.toString());
+                        } catch(JSONException e) {
+                            e.printStackTrace();
+                        }
+                    }
                     Intent toChat = new Intent(context, ChatActivity.class);
                     toChat.putExtra("user_id", req.getFrom());
                     context.startActivity(toChat);

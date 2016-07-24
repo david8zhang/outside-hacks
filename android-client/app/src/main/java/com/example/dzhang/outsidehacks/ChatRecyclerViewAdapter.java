@@ -1,6 +1,7 @@
 package com.example.dzhang.outsidehacks;
 
 import android.content.Context;
+import android.graphics.Color;
 import android.os.Build;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
@@ -39,7 +40,7 @@ public class ChatRecyclerViewAdapter<T extends Message> extends RecyclerView.Ada
 
     @Override
     public int getItemViewType(int position) {
-        if(messages.get(position).getFrom() == Build.ID) {
+        if(messages.get(position).getFrom().equals(Build.ID)) {
             return 0;
         } else {
             return 1;
@@ -51,7 +52,11 @@ public class ChatRecyclerViewAdapter<T extends Message> extends RecyclerView.Ada
         Log.d("MESSAGE LENGTH", Integer.toString(messages.size()));
         Message message = messages.get(position);
         String text = message.getMessage();
+        String status = message.getStatus();
         TextView my_message = holder.textView;
+        if(status != null) {
+            holder.textView.setBackgroundColor(Color.parseColor("#2F582E"));
+        }
         my_message.setText(text);
     }
 
