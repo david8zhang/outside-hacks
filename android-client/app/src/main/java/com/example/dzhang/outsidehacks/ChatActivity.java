@@ -69,6 +69,13 @@ public class ChatActivity extends AppCompatActivity {
                             Message message = new Message(data.getString("from"), data.getString("target"), data.getString("message"));
                             messages.add(message);
                             chatViewAdapter.notifyDataSetChanged();
+                            recyclerView.post(new Runnable() {
+                                @Override
+                                public void run() {
+                                    // Call smooth scroll
+                                    recyclerView.smoothScrollToPosition(chatViewAdapter.getItemCount());
+                                }
+                            });
                         } catch (JSONException e) {
                             e.printStackTrace();
                         }
