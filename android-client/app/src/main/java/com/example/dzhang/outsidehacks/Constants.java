@@ -5,5 +5,5 @@ package com.example.dzhang.outsidehacks;
  */
 public class Constants {
     public static final String SOCKET_URL = "http://outside-hacks-socket.herokuapp.com";
-    public static final String DUMMY_USER_ID = "android-123";
+    //public static final User user;
 }

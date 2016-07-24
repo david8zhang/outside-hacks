@@ -1,40 +1,38 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="horizontal"
-    android:weightSum="4"
     tools:context="com.example.dzhang.outsidehacks.MainActivity">
 
-    <Button
+    <ImageView
+        android:id="@+id/logo"
+        android:src="@drawable/logo"
+        android:layout_width="256dp"
+        android:layout_height="256dp"
+        android:layout_marginTop="64dp"
+        android:layout_centerHorizontal="true"/>
 
-        android:layout_width="wrap_content"
+    <EditText
+        android:id="@+id/username_field"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_weight="1"
-        android:text="Go to Map View"
-        android:id="@+id/gotomap"/>
-
-    <Button
-        android:id="@+id/goToArtistCheckboxes"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_weight="1"
-        android:text="Go to artists" />
-
-
-    <Button
-        android:id="@+id/goToFriendList"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_weight="1"
-        android:text="Go to friend list" />
+        android:layout_centerInParent="true"
+        android:layout_below="@id/logo"
+        android:padding="16dp"
+        android:hint="Enter a username" />
 
     <Button
-        android:id="@+id/goToChat"
-        android:layout_weight="1"
-        android:layout_width="wrap_content"
+        android:layout_width="240dp"
         android:layout_height="wrap_content"
-        android:text="Go to chat"/>
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="@dimen/text_margin"
+        android:padding="@dimen/text_margin"
+        android:text="Submit"
+        android:textColor="#fff"
+        android:id="@+id/gotomap"
+        android:layout_below="@id/username_field"
+        android:background="@drawable/button_rect"/>
 
-</LinearLayout>
+</RelativeLayout>

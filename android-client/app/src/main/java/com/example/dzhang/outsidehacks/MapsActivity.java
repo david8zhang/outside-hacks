@@ -45,6 +45,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Random;
 
 
 public class MapsActivity extends FragmentActivity implements OnMapReadyCallback,
@@ -79,6 +80,18 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
+        String username;
+        if(savedInstanceState == null) {
+            Bundle extras = getIntent().getExtras();
+            if(extras == null) {
+                username = null;
+            } else {
+                username = extras.getString("Username");
+            }
+        } else {
+            username = (String)savedInstanceState.getSerializable("user_id");
+        }
+
         // ===== Create Dummy User =====
         List<String> friendList = new ArrayList<>();
         friendList.add("Bill Gates");
@@ -86,7 +99,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         List<Artist> artists = new ArrayList<>();
         artists.add(new Artist("a", "Vulfpeck"));
         artists.add(new Artist("b", "Red Taxi"));
-        dummyUser = new User(Build.ID, "Edward Zhang", "Hello World", friendList, null);
+        dummyUser = new User(Build.ID, username, "I am at OutsideLands with the VIP tickets I won from OutsideHacks", friendList, null);
         // ===== End Create Dummy User =====
 
         setContentView(R.layout.activity_maps);
@@ -178,6 +191,24 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
      */
     public void renderNearby(JSONArray jsonArray) {
         ArrayList<JSONObject> arr = checkInRadius(jsonArray);
+        ArrayList<User> dummyUsers = new ArrayList<>();
+        dummyUsers.add(new User("a", "Edward Zhang", "A cool person", null, null));
+        dummyUsers.add(new User("b", "Bill Gates", "Not as rich as Edward", null, null));
+        dummyUsers.add(new User("c", "Steve Jobs", "Not as successful as Edward", null, null));
+        dummyUsers.add(new User("d", "Anonymous", "I am anonymous", null, null));
+        dummyUsers.add(new User("e", "Test person #e", "id = e", null, null));
+        dummyUsers.add(new User("f", "Albert", "e = mc squared", null, null));
+        if (latitude != null && longitude != null)
+        {
+            double myLat = Double.parseDouble(latitude);
+            double myLon = Double.parseDouble(longitude);
+            for (User u : dummyUsers){
+                double randLat = Math.random() * 100 - 50 + myLat;
+                double randLon = Math.random() * 100 - 50 + myLon;
+                addMarker(u.userId, randLat, randLon);
+            }
+        }
+
         for(int i = 0; i < arr.size(); i++) {
             try {
                 JSONObject obj = arr.get(i);
