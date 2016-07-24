@@ -11,6 +11,7 @@ public class ChatRequestActivity extends AppCompatActivity {
 
     public TextView usernameView;
     public TextView taglineView;
+    public String username;
     public Button sendChatRequestButton;
     public Button sendMeetRequestButton;
 
@@ -23,6 +24,18 @@ public class ChatRequestActivity extends AppCompatActivity {
         taglineView = (TextView) findViewById(R.id.tagline);
         sendChatRequestButton = (Button) findViewById(R.id.sendChatRequest);
         sendMeetRequestButton = (Button) findViewById(R.id.sendMeetRequest);
+
+
+        if(savedInstanceState == null) {
+            Bundle extras = getIntent().getExtras();
+            if(extras == null) {
+                username = null;
+            } else {
+                username = extras.getString("user_id");
+            }
+        } else {
+            username = (String)savedInstanceState.getSerializable("user_id");
+        }
 
 
         // TODO: Set these OnClickListeners
@@ -40,13 +53,6 @@ public class ChatRequestActivity extends AppCompatActivity {
             }
         });
 
-        /*
-        Intent intent = getIntent();
-        String username = intent.getStringExtra("<EXTRA KEY FOR USERNAME>");
-        String tagline = intent.getStringExtra("<EXTRA KEY FOR TAGLINE>");
-        */
-
-        String username = "Edward";
         String tagline = "I am a cool guy at OutsideLands with my VIP tickets that I won from OutsideHacks";
 
         usernameView.setText(username);
