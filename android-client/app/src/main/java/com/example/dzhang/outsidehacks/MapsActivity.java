@@ -18,6 +18,7 @@ import android.os.Bundle;
 import android.support.v4.content.ContextCompat;
 import android.util.Log;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.Toast;
 
@@ -98,13 +99,23 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         }
         handleLocationIncoming();
         handleLocationBroadcast();
+        handlePendingRequests();
 
-        ImageButton button = (ImageButton)findViewById(R.id.friends_button);
-        button.setOnClickListener(new View.OnClickListener() {
+        Button friends_button = (Button)findViewById(R.id.friends_button);
+        friends_button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent toFriendsList = new Intent(MapsActivity.this, FriendList.class);
                 MapsActivity.this.startActivity(toFriendsList);
+            }
+        });
+
+        Button pending_button = (Button)findViewById(R.id.request_button);
+        pending_button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent toPending = new Intent(MapsActivity.this, PendingRequestActivity.class);
+                MapsActivity.this.startActivity(toPending);
             }
         });
     }
@@ -346,6 +357,36 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                     new String[]{Manifest.permission.ACCESS_FINE_LOCATION},
                     MY_PERMISSIONS_ACCESS_FINE_LOCATION);
         }
+    }
+
+    public void handlePendingRequests() {
+        Emitter.Listener messageListener = new Emitter.Listener() {
+            @Override
+            public void call(final Object... args) {
+                runOnUiThread(new Runnable() {
+                    @Override
+                    public void run() {
+                        JSONObject data = (JSONObject)args[0];
+                        Log.d("REQUESTS", data.toString());
+                        try {
+                            Request req = new Request(data.getString("from"), data.getString("target"));
+                            for(int i = 0; i < DataManager.requests.size(); i++) {
+                                Request pending = DataManager.requests.get(i);
+                                if(pending.target.equals(data.getString("from"))) {
+                                    DataManager.requests.remove(pending);
+                                }
+                            }
+                            if(!data.getString("from").equals(Build.ID)) {
+                                DataManager.requests.add(req);
+                            }
+                        } catch (JSONException e) {
+                            e.printStackTrace();
+                        }
+                    }
+                });
+            }
+        };
+        mSocket.on("requests", messageListener);
     }
 
     /**

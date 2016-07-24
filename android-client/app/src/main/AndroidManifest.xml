@@ -40,11 +40,12 @@
         <activity
             android:name=".MapsActivity"
             android:screenOrientation="portrait"
-            android:label="@string/title_activity_maps"></activity>
+            android:label="@string/title_activity_maps"/>
         <activity android:name=".FriendList" />
-        <activity android:name=".ChatRequestActivity" />
-        <activity android:name=".LikedArtistsFormActivity"></activity>
-        <activity android:name=".ChatActivity"></activity>
+        <activity android:name=".ChatRequestActivity" android:screenOrientation="portrait"/>
+        <activity android:name=".LikedArtistsFormActivity"/>
+        <activity android:name=".ChatActivity" android:screenOrientation="portrait"/>
+        <activity android:name=".PendingRequestActivity"/>
     </application>
 
 </manifest>

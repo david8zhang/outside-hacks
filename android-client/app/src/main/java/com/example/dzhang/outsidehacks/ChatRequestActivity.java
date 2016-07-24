@@ -1,11 +1,20 @@
 package com.example.dzhang.outsidehacks;
 
 import android.content.Intent;
+import android.os.Build;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+
+import com.github.nkzawa.socketio.client.IO;
+import com.github.nkzawa.socketio.client.Socket;
+
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.net.URISyntaxException;
 
 public class ChatRequestActivity extends AppCompatActivity {
 
@@ -14,6 +23,12 @@ public class ChatRequestActivity extends AppCompatActivity {
     public String username;
     public Button sendChatRequestButton;
     public Button sendMeetRequestButton;
+    private Socket mSocket;
+    {
+        try {
+            mSocket = IO.socket(Constants.SOCKET_URL);
+        } catch (URISyntaxException e) {}
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,13 +52,24 @@ public class ChatRequestActivity extends AppCompatActivity {
             username = (String)savedInstanceState.getSerializable("user_id");
         }
 
+        mSocket.connect();
+
 
         // TODO: Set these OnClickListeners
         sendChatRequestButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent goToChat = new Intent(ChatRequestActivity.this, ChatActivity.class);
-                ChatRequestActivity.this.startActivity(goToChat);
+                JSONObject obj = new JSONObject();
+                try {
+                    obj.put("from", Build.ID);
+                    obj.put("target", username);
+                    obj.put("status", "PENDING");
+                    mSocket.emit("requests", obj.toString());
+                    DataManager.requests.add(new Request(Build.ID, username));
+                    onBackPressed();
+                } catch(JSONException e) {
+                    e.printStackTrace();
+                }
             }
         });
 

@@ -27,9 +27,23 @@ public class ChatRecyclerViewAdapter<T extends Message> extends RecyclerView.Ada
 
     @Override
     public ChatRecyclerViewAdapter.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.message_bubble, parent, false);
+        View v;
+        if(viewType == 0) {
+            v = LayoutInflater.from(parent.getContext()).inflate(R.layout.message_sender, parent, false);
+        } else {
+            v = LayoutInflater.from(parent.getContext()).inflate(R.layout.message_recieve, parent, false);
+        }
         final ViewHolder vh = new ViewHolder(v);
         return vh;
+    }
+
+    @Override
+    public int getItemViewType(int position) {
+        if(messages.get(position).getFrom() == Build.ID) {
+            return 0;
+        } else {
+            return 1;
+        }
     }
 
     @Override
@@ -37,23 +51,8 @@ public class ChatRecyclerViewAdapter<T extends Message> extends RecyclerView.Ada
         Log.d("MESSAGE LENGTH", Integer.toString(messages.size()));
         Message message = messages.get(position);
         String text = message.getMessage();
-        TextView my_message = holder.my_message;
-        TextView other_message = holder.other_message;
-        if(message.getFrom().equals(Build.ID)) {
-            Log.d("RENDER CHAT MESSAGE", message.getMessage());
-            other_message.setLayoutParams(new RelativeLayout.LayoutParams(0,
-                    RelativeLayout.LayoutParams.WRAP_CONTENT));
-            my_message.setLayoutParams(new RelativeLayout.LayoutParams(RelativeLayout.LayoutParams.WRAP_CONTENT,
-                    RelativeLayout.LayoutParams.WRAP_CONTENT));
-            my_message.setText(text);
-        } else {
-            Log.d("RENDER CHAT MESSAGE", message.getMessage());
-            my_message.setLayoutParams(new RelativeLayout.LayoutParams(0,
-                    RelativeLayout.LayoutParams.WRAP_CONTENT));
-            other_message.setLayoutParams(new RelativeLayout.LayoutParams(RelativeLayout.LayoutParams.WRAP_CONTENT,
-                    RelativeLayout.LayoutParams.WRAP_CONTENT));
-            other_message.setText(text);
-        }
+        TextView my_message = holder.textView;
+        my_message.setText(text);
     }
 
     @Override
@@ -62,15 +61,12 @@ public class ChatRecyclerViewAdapter<T extends Message> extends RecyclerView.Ada
     }
 
     public static class ViewHolder extends RecyclerView.ViewHolder {
-        public TextView other_message;
-        public TextView my_message;
+        public TextView textView;
 
         public ViewHolder(View itemView) {
             super(itemView);
 
-            other_message = (TextView)itemView.findViewById(R.id.other_message);
-            my_message = (TextView)itemView.findViewById(R.id.my_message);
-
+            textView = (TextView)itemView.findViewById(R.id.text_view);
         }
     }
 }

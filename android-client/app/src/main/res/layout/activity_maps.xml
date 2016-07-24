@@ -13,14 +13,22 @@
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:weightSum="2"
+        android:orientation="horizontal"
         android:layout_gravity="bottom|center_horizontal">
-        <ImageButton
-            android:src="@drawable/friends"
-            android:scaleType="fitCenter"
+        <Button
+            android:text="Friends"
+            android:layout_weight="1"
             android:id="@+id/friends_button"
-            android:layout_width="60dp"
+            android:layout_width="wrap_content"
             android:layout_height="60dp" />
 
+        <Button
+            android:text="Requests"
+            android:id="@+id/request_button"
+            android:layout_width="wrap_content"
+            android:layout_height="60dp"
+            android:layout_weight="1"/>
     </LinearLayout>
 
 </FrameLayout>
