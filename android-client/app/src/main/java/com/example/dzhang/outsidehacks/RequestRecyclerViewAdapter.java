@@ -60,26 +60,23 @@ public class RequestRecyclerViewAdapter extends RecyclerView.Adapter<RequestRecy
             user_id.setText(self);
             confirm.setVisibility(View.INVISIBLE);
             deny.setVisibility(View.INVISIBLE);
-        } else {
+        } else if(req.status.equals("PENDING")){
             user_id.setText(req.getFrom());
+            pending.setVisibility(View.INVISIBLE);
             confirm.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    boolean noConfirm = false;
-                    if(req.getStatus() != "ACCEPTED") {
-                        JSONObject obj = new JSONObject();
-                        try {
-                            obj.put("from", Build.ID);
-                            obj.put("target", req.getFrom());
-                            obj.put("status", "ACCEPTED");
-                            mSocket.emit("requests", obj.toString());
-                        } catch(JSONException e) {
-                            e.printStackTrace();
-                        }
+                    req.status = "CONFIRMED";
+                    JSONObject obj = new JSONObject();
+                    try {
+                        obj.put("from", Build.ID);
+                        obj.put("target", req.getFrom());
+                        obj.put("status", "ACCEPTED");
+                        mSocket.emit("requests", obj.toString());
+                    } catch(JSONException e) {
+                        e.printStackTrace();
                     }
-                    Intent toChat = new Intent(context, ChatActivity.class);
-                    toChat.putExtra("user_id", req.getFrom());
-                    context.startActivity(toChat);
+                    RequestRecyclerViewAdapter.this.notifyItemChanged(position);
                 }
             });
             deny.setOnClickListener(new View.OnClickListener() {
@@ -88,6 +85,19 @@ public class RequestRecyclerViewAdapter extends RecyclerView.Adapter<RequestRecy
                     requests.remove(req);
                     RequestRecyclerViewAdapter.this.notifyItemRemoved(position);
                     RequestRecyclerViewAdapter.this.notifyItemRangeChanged(position, requests.size());
+                }
+            });
+        } else if(req.status.equals("CONFIRMED")) {
+            pending.setVisibility(View.INVISIBLE);
+            deny.setVisibility(View.INVISIBLE);
+            String confirmText = "Chat";
+            confirm.setText(confirmText);
+            confirm.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    Intent toChat = new Intent(context, ChatActivity.class);
+                    toChat.putExtra("user_id", req.getFrom());
+                    context.startActivity(toChat);
                 }
             });
         }
@@ -111,6 +121,7 @@ public class RequestRecyclerViewAdapter extends RecyclerView.Adapter<RequestRecy
             user_id = (TextView)itemView.findViewById(R.id.user_id);
             confirm = (Button)itemView.findViewById(R.id.confirm);
             deny = (Button)itemView.findViewById(R.id.deny);
+            pending = (Button)itemView.findViewById(R.id.pending);
         }
     }
 }

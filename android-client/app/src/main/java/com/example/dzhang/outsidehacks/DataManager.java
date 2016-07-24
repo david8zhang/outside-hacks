@@ -7,4 +7,5 @@ import java.util.ArrayList;
  */
 public class DataManager {
     public static ArrayList<Request> requests = new ArrayList<Request>();
+    public static ArrayList<String> friends = new ArrayList<String>();
 }

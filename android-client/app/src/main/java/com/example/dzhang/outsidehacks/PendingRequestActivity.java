@@ -57,27 +57,63 @@ public class PendingRequestActivity extends AppCompatActivity {
                         JSONObject data = (JSONObject)args[0];
                         Log.d("REQUESTS", data.toString());
                         try {
-                            Request req = new Request(data.getString("from"), data.getString("target"), data.getString("status"));
-                            for(int i = 0; i < DataManager.requests.size(); i++) {
-                                Request pending = DataManager.requests.get(i);
-                                if(pending.target.equals(data.getString("from"))) {
-                                    DataManager.requests.remove(pending);
-                                    rrViewAdapter.notifyItemRemoved(i);
-                                    rrViewAdapter.notifyItemRangeChanged(i, requests.size());
-                                }
+                            if(data.getString("status").equals("PENDING")) {
+                                handlePendingRequest(data);
+                            } else if(data.getString("status").equals("ACCEPTED")) {
+                                handleAcceptedRequest(data);
                             }
-                            if(!data.getString("from").equals(Build.ID)) {
-                                requests.add(req);
-                                rrViewAdapter.notifyDataSetChanged();
-                            }
-                        } catch (JSONException e) {
+                        } catch(JSONException e) {
                             e.printStackTrace();
                         }
+
                     }
                 });
             }
         };
         mSocket.on("requests", messageListener);
         mSocket.connect();
+    }
+
+    /**
+     * Handle a request with type "confirmed"
+     * @param data
+     */
+    public void handleAcceptedRequest(JSONObject data) {
+        try {
+            Request req = new Request(data.getString("from"), data.getString("target"), data.getString("status"));
+            for(int i = 0; i < DataManager.requests.size(); i++) {
+                Request pending = DataManager.requests.get(i);
+                if(pending.target.equals(req.target) && pending.from.equals(req.from)) {
+                    pending.status = "CONFIRMED";
+                    rrViewAdapter.notifyItemChanged(i);
+                }
+            }
+        } catch(JSONException e) {
+            e.printStackTrace();
+        }
+
+    }
+
+    /**
+     * Handle a request with status pending
+     * @param data
+     */
+    public void handlePendingRequest(JSONObject data) {
+        try {
+            Request req = new Request(data.getString("from"), data.getString("target"), data.getString("status"));
+            for(int i = 0; i < DataManager.requests.size(); i++) {
+                Request pending = DataManager.requests.get(i);
+                if(pending.target.equals(req.target) && pending.from.equals(req.from) && pending.status.equals(req.status)) {
+                    DataManager.requests.remove(pending);
+                }
+            }
+            if(!data.getString("from").equals(Build.ID)) {
+                DataManager.requests.add(req);
+                rrViewAdapter.notifyDataSetChanged();
+            }
+        } catch(JSONException e) {
+            e.printStackTrace();
+        }
+
     }
 }

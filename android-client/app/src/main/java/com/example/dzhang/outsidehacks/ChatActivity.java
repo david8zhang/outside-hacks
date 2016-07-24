@@ -10,6 +10,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
 
 import com.github.nkzawa.emitter.Emitter;
 import com.github.nkzawa.socketio.client.IO;
@@ -34,6 +35,7 @@ public class ChatActivity extends AppCompatActivity {
     private ChatRecyclerViewAdapter<Message> chatViewAdapter;
     private ArrayList<Message> messages = new ArrayList<Message>();
     private Socket mSocket;
+    private boolean likeFlag;
     {
         try {
             mSocket = IO.socket(Constants.SOCKET_URL);
@@ -56,7 +58,7 @@ public class ChatActivity extends AppCompatActivity {
             username = (String)savedInstanceState.getSerializable("user_id");
         }
 
-        Button like = (Button)findViewById(R.id.like);
+        ImageButton like = (ImageButton)findViewById(R.id.like);
         like.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -68,18 +70,32 @@ public class ChatActivity extends AppCompatActivity {
                     obj.put("message", message);
                     obj.put("status", "LIKE");
                     mSocket.emit("message", obj.toString());
+                    if(likeFlag) {
+                        if(!DataManager.friends.contains(username)) {
+                            DataManager.friends.add(username);
+                        }
+                        Intent toFriends = new Intent(ChatActivity.this, FriendList.class);
+                        ChatActivity.this.startActivity(toFriends);
+                    } else {
+                        likeFlag = true;
+                    }
                     Message render_msg = new Message(Build.ID, username, message, "LIKE");
                     messages.add(render_msg);
                     chatViewAdapter.notifyDataSetChanged();
+                    recyclerView.post(new Runnable() {
+                        @Override
+                        public void run() {
+                            recyclerView.smoothScrollToPosition(chatViewAdapter.getItemCount());
+                        }
+                    });
                 } catch(JSONException e) {
                     e.printStackTrace();
                 }
             }
         });
 
-
         messageCompose = (EditText)findViewById(R.id.enter_message);
-        Button submitMsg = (Button)findViewById(R.id.submit_message);
+        ImageButton submitMsg = (ImageButton)findViewById(R.id.submit_message);
         submitMsg.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -143,6 +159,16 @@ public class ChatActivity extends AppCompatActivity {
                                         recyclerView.smoothScrollToPosition(chatViewAdapter.getItemCount());
                                     }
                                 });
+                            } else {
+                                if(likeFlag) {
+                                    if(!DataManager.friends.contains(username)) {
+                                        DataManager.friends.add(username);
+                                    }
+                                    Intent toFriendsList = new Intent(ChatActivity.this, FriendList.class);
+                                    startActivity(toFriendsList);
+                                } else {
+                                    likeFlag = true;
+                                }
                             }
                         } catch (JSONException e) {
                             e.printStackTrace();

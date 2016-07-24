@@ -186,7 +186,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     }
 
     /**
-     * Render all nearby users
+     * Render all nearby strangers
      * @param jsonArray
      */
     public void renderNearby(JSONArray jsonArray) {
@@ -212,13 +212,32 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         for(int i = 0; i < arr.size(); i++) {
             try {
                 JSONObject obj = arr.get(i);
-                if(!obj.getString("user_id").equals(dummyUser)) {
+                if(!obj.getString("user_id").equals(dummyUser.userId) &&
+                        !DataManager.friends.contains(obj.getString("user_id"))) {
                     JSONArray location = new JSONArray(obj.getString("location"));
                     addMarker(obj.getString("user_id"), location.getDouble(0), location.getDouble(1));
                 }
             } catch (JSONException e) {
                 e.printStackTrace();
             }
+        }
+    }
+
+    /**
+     * Render all the nearby friends
+     * @param jsonArray
+     */
+    public void renderFriends(JSONArray jsonArray) {
+        try {
+            for(int i = 0; i < jsonArray.length(); i++) {
+                JSONObject obj = jsonArray.getJSONObject(i);
+                if(DataManager.friends.contains(obj.getString("user_id"))) {
+                    JSONArray location = new JSONArray(obj.getString("location"));
+                    addFriend(obj.getString("user_id"), location.getDouble(0), location.getDouble(1));
+                }
+            }
+        } catch (JSONException e) {
+            e.printStackTrace();
         }
     }
 
@@ -268,6 +287,19 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         }
     }
 
+    public void addFriend(String user_id, double lat, double lng) {
+        if(!users.containsKey(user_id)) {
+            Marker marker = mMap.addMarker(new MarkerOptions()
+                    .position(new LatLng(lat, lng))
+                    .title(user_id)
+                    .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_RED)));
+            users.put(user_id, marker);
+        } else {
+            Marker marker = users.get(user_id);
+            marker.setPosition(new LatLng(lat, lng));
+        }
+    }
+
     /**
      * Clear all the markers on the map besides self marker
      */
@@ -296,6 +328,12 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         if(user_id == null) {
             return false;
         }
+        if(DataManager.friends.contains(user_id)) {
+            Intent toChat= new Intent(MapsActivity.this, ChatActivity.class);
+            toChat.putExtra("user_id", user_id);
+            MapsActivity.this.startActivity(toChat);
+            return true;
+        }
         Intent chatRequest = new Intent(MapsActivity.this, ChatRequestActivity.class);
         chatRequest.putExtra("user_id", user_id);
         MapsActivity.this.startActivity(chatRequest);
@@ -318,13 +356,14 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                         try {
                             JSONArray jsonArray = new JSONArray(data);
                             long time = System.currentTimeMillis();
-                            if(time - lastTime > 30000) {
+                            if(time - lastTime > 10000) {
                                 Log.d("TIME", Long.toString(time));
                                 Log.d("LAST TIME", Long.toString(lastTime));
                                 if(lastTime != 0) {
                                     clearMarkers();
                                 }
                                 renderNearby(jsonArray);
+                                renderFriends(jsonArray);
                                 lastTime = time;
                             }
                         } catch (JSONException e) {
