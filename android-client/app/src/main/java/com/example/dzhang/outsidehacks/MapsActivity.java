@@ -108,7 +108,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                         .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_BLUE)));
                 CameraPosition cameraPosition = new CameraPosition.Builder()
                         .target(latlng)
-                        .zoom(15)
+                        .zoom(18)
                         .bearing(0)
                         .tilt(45)
                         .build();
@@ -223,7 +223,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                         try {
                             JSONArray jsonArray = new JSONArray(data);
                             long time = System.currentTimeMillis();
-                            if(time - lastTime > 120000) {
+                            if(time - lastTime > 30000) {
                                 Log.d("TIME", Long.toString(time));
                                 Log.d("LAST TIME", Long.toString(lastTime));
                                 if(lastTime != 0) {
