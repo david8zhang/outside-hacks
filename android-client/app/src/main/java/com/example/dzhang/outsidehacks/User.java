@@ -1,63 +1,46 @@
 package com.example.dzhang.outsidehacks;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
- * Created by dzhang on 7/23/16.
+ * Created by edwardzhang on 7/23/16.
  */
 public class User {
-    public String getUser_id() {
-        return user_id;
+    public final String userId;
+    public final String username;
+    public final String tagline;
+    public final List<String> friendIds;
+    public final List<Artist> likedArtists;
+
+    public User(String userId, String username, String tagline,
+                List<String> friendIds, List<Artist> likedArtists) {
+        this.userId = userId;
+        this.username = username;
+        this.tagline = tagline;
+        this.friendIds = friendIds;
+        this.likedArtists = likedArtists;
     }
 
-    public void setUser_id(String user_id) {
-        this.user_id = user_id;
-    }
-
-    public String getUsername() {
+    @Override
+    public String toString() {
         return username;
     }
 
-    public void setUsername(String username) {
-        this.username = username;
+    public int getScore(User other) {
+        int answer = 100 * getNumCommonLikedArtists(this, other).size();
+        answer *= 1 / (double)other.friendIds.size();
+        return answer;
     }
 
-    public int getScore() {
-        return score;
+    public static List<Artist> getNumCommonLikedArtists(User one, User two) {
+        List<Artist> answer = new ArrayList<>();
+        for (Artist artist1 : one.likedArtists) {
+            for (Artist artist2 : two.likedArtists) {
+                if (artist1.artistId.equals(artist2.artistId))
+                    answer.add(artist1);
+            }
+        }
+        return answer;
     }
-
-    public void setScore(int score) {
-        this.score = score;
-    }
-
-    public int getNum_friends() {
-        return num_friends;
-    }
-
-    public void setNum_friends(int num_friends) {
-        this.num_friends = num_friends;
-    }
-
-    public String[] getFriends() {
-        return friends;
-    }
-
-    public void setFriends(String[] friends) {
-        this.friends = friends;
-    }
-
-    public String[] getInterested_artists() {
-        return interested_artists;
-    }
-
-    public void setInterested_artists(String[] interested_artists) {
-        this.interested_artists = interested_artists;
-    }
-
-    private String user_id;
-    private String username;
-    private int score;
-    private int num_friends;
-    private String[] friends;
-    private String[] interested_artists;
-
-
 }

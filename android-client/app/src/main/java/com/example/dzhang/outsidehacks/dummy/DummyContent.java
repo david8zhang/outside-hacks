@@ -1,6 +1,6 @@
 package com.example.dzhang.outsidehacks.dummy;
 
-import com.example.dzhang.outsidehacks.Friend;
+import com.example.dzhang.outsidehacks.User;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -18,26 +18,26 @@ public class DummyContent {
     /**
      * An array of sample (dummy) items.
      */
-    public static final List<Friend> ITEMS = new ArrayList<Friend>();
+    public static final List<User> ITEMS = new ArrayList<User>();
 
     /**
      * A map of sample (dummy) items, by ID.
      */
-    public static final Map<String, Friend> ITEM_MAP = new HashMap<String, Friend>();
+    public static final Map<String, User> ITEM_MAP = new HashMap<String, User>();
 
     private static final int COUNT = 25;
 
     static {
         // Add some sample items.
-        addItem(new Friend("a", "Edward Zhang", "A cool person", 1000, null, null, 1000));
-        addItem(new Friend("b", "Bill Gates", "Not as rich as Edward", 7, null, null, 3));
-        addItem(new Friend("c", "Steve Jobs", "Not as successful as Edward", 7, null, null, 3));
-        addItem(new Friend("d", "Anonymous", "I am anonymous", 7, null, null, 3));
-        addItem(new Friend("e", "Test person #e", "id = e", 7, null, null, 3));
-        addItem(new Friend("f", "Albert", "e = mc squared", 7, null, null, 3));
+        addItem(new User("a", "Edward Zhang", "A cool person", null, null));
+        addItem(new User("b", "Bill Gates", "Not as rich as Edward", null, null));
+        addItem(new User("c", "Steve Jobs", "Not as successful as Edward", null, null));
+        addItem(new User("d", "Anonymous", "I am anonymous", null, null));
+        addItem(new User("e", "Test person #e", "id = e", null, null));
+        addItem(new User("f", "Albert", "e = mc squared", null, null));
     }
 
-    private static void addItem(Friend item) {
+    private static void addItem(User item) {
         ITEMS.add(item);
         ITEM_MAP.put(item.userId, item);
     }

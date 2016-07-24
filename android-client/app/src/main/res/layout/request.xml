@@ -24,18 +24,18 @@
         android:textColor="#FFFFFF"
         android:id="@+id/confirm"
         android:layout_weight="0.5"
-        android:background="#00FF00"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:background="@drawable/button_rect" />
 
     <Button
         android:textColor="#FFFFFF"
         android:text="Deny"
         android:id="@+id/deny"
         android:layout_weight="0.5"
-        android:background="#FF0000"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:background="@drawable/button_rect_accent" />
 
     <Button
         android:id="@+id/pending"

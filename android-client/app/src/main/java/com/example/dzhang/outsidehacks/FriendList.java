@@ -1,10 +1,7 @@
 package com.example.dzhang.outsidehacks;
 
-import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-
-import com.example.dzhang.outsidehacks.dummy.DummyContent;
 
 public class FriendList extends AppCompatActivity
         implements FriendFragment.OnListFragmentInteractionListener{
@@ -16,7 +13,7 @@ public class FriendList extends AppCompatActivity
     }
 
     @Override
-    public void onListFragmentInteraction(Friend item) {
+    public void onListFragmentInteraction(User item) {
         //Intent intent = new Intent();
     }
 }

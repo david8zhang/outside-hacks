@@ -101,6 +101,6 @@ public class FriendFragment extends Fragment {
      */
     public interface OnListFragmentInteractionListener {
         // TODO: Update argument type and username
-        void onListFragmentInteraction(Friend item);
+        void onListFragmentInteraction(User item);
     }
 }

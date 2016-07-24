@@ -1,6 +1,5 @@
 package com.example.dzhang.outsidehacks;
 
-import android.*;
 import android.Manifest;
 import android.content.Intent;
 import android.content.pm.PackageManager;
@@ -19,7 +18,6 @@ import android.support.v4.content.ContextCompat;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
-import android.widget.ImageButton;
 import android.widget.Toast;
 
 import com.github.nkzawa.emitter.Emitter;
@@ -28,7 +26,6 @@ import com.github.nkzawa.socketio.client.Socket;
 import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.api.GoogleApiClient;
 import com.google.android.gms.location.LocationServices;
-import com.google.android.gms.maps.CameraUpdate;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
@@ -45,10 +42,9 @@ import org.json.JSONObject;
 
 import java.net.URISyntaxException;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
-import java.util.UUID;
 
 
 public class MapsActivity extends FragmentActivity implements OnMapReadyCallback,
@@ -67,7 +63,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     /** User to Marker & Marker to User Mappings */
     private HashMap<String, Marker> users = new HashMap<>();
 
-    private String dummy_user_id = Build.ID;
+    private User dummyUser;
     private String latitude;
     private String longitude;
     private long lastTime;
@@ -82,6 +78,17 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        // ===== Create Dummy User =====
+        List<String> friendList = new ArrayList<>();
+        friendList.add("Bill Gates");
+        friendList.add("Test user #e");
+        List<Artist> artists = new ArrayList<>();
+        artists.add(new Artist("a", "Vulfpeck"));
+        artists.add(new Artist("b", "Red Taxi"));
+        dummyUser = new User(Build.ID, "Edward Zhang", "Hello World", friendList, null);
+        // ===== End Create Dummy User =====
+
         setContentView(R.layout.activity_maps);
 
         // Obtain the SupportMapFragment and get notified when the map is ready to be used.
@@ -121,8 +128,8 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     }
 
     protected void onStart() {
-        mGoogleApiClient.connect();
         super.onStart();
+        mGoogleApiClient.connect();
     }
 
     /**
@@ -174,7 +181,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         for(int i = 0; i < arr.size(); i++) {
             try {
                 JSONObject obj = arr.get(i);
-                if(!obj.getString("user_id").equals(dummy_user_id) &&
+                if(!obj.getString("user_id").equals(dummyUser.userId) &&
                         !DataManager.friends.contains(obj.getString("user_id"))) {
                     JSONArray location = new JSONArray(obj.getString("location"));
                     addMarker(obj.getString("user_id"), location.getDouble(0), location.getDouble(1));
@@ -352,7 +359,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                 String latlng = "[" + latitude + "," + longitude + "]";
                 try {
                     JSONObject obj = new JSONObject();
-                    obj.put("user_id", dummy_user_id);
+                    obj.put("user_id", dummyUser.userId);
                     obj.put("location", latlng);
                     CameraPosition cameraPosition = new CameraPosition.Builder()
                             .target(new LatLng(location.getLatitude(), location.getLongitude()))

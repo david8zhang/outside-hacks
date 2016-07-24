@@ -9,15 +9,15 @@ import android.widget.TextView;
 import java.util.List;
 
 /**
- * {@link RecyclerView.Adapter} that can display a {@link Friend}
+ * {@link RecyclerView.Adapter} that can display a {@link User}
  * TODO: Replace the implementation with code for your data type.
  */
 public class FriendRecyclerViewAdapter extends RecyclerView.Adapter<FriendRecyclerViewAdapter.ViewHolder> {
 
-    private final List<Friend> mValues;
+    private final List<User> mValues;
     private final FriendFragment.OnListFragmentInteractionListener mListener;
 
-    public FriendRecyclerViewAdapter(List<Friend> items,
+    public FriendRecyclerViewAdapter(List<User> items,
                                      FriendFragment.OnListFragmentInteractionListener listener) {
         mValues = items;
         mListener = listener;
@@ -59,7 +59,7 @@ public class FriendRecyclerViewAdapter extends RecyclerView.Adapter<FriendRecycl
         public final TextView usernameView;
         public final TextView taglineView;
         public final TextView distanceView;
-        public Friend mItem;
+        public User mItem;
 
         public ViewHolder(View view) {
             super(view);

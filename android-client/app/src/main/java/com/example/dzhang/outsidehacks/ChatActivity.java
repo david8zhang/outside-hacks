@@ -10,6 +10,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
 
 import com.github.nkzawa.emitter.Emitter;
 import com.github.nkzawa.socketio.client.IO;
@@ -57,7 +58,7 @@ public class ChatActivity extends AppCompatActivity {
             username = (String)savedInstanceState.getSerializable("user_id");
         }
 
-        Button like = (Button)findViewById(R.id.like);
+        ImageButton like = (ImageButton)findViewById(R.id.like);
         like.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -94,7 +95,7 @@ public class ChatActivity extends AppCompatActivity {
         });
 
         messageCompose = (EditText)findViewById(R.id.enter_message);
-        Button submitMsg = (Button)findViewById(R.id.submit_message);
+        ImageButton submitMsg = (ImageButton)findViewById(R.id.submit_message);
         submitMsg.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
