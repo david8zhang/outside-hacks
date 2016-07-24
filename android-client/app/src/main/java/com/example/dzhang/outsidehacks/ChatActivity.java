@@ -70,6 +70,9 @@ public class ChatActivity extends AppCompatActivity {
                     obj.put("status", "LIKE");
                     mSocket.emit("message", obj.toString());
                     if(likeFlag) {
+                        if(!DataManager.friends.contains(username)) {
+                            DataManager.friends.add(username);
+                        }
                         Intent toFriends = new Intent(ChatActivity.this, FriendList.class);
                         ChatActivity.this.startActivity(toFriends);
                     } else {
@@ -157,6 +160,9 @@ public class ChatActivity extends AppCompatActivity {
                                 });
                             } else {
                                 if(likeFlag) {
+                                    if(!DataManager.friends.contains(username)) {
+                                        DataManager.friends.add(username);
+                                    }
                                     Intent toFriendsList = new Intent(ChatActivity.this, FriendList.class);
                                     startActivity(toFriendsList);
                                 } else {
