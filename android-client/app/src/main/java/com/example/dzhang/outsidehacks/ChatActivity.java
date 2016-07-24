@@ -25,7 +25,7 @@ import java.util.ArrayList;
 public class ChatActivity extends AppCompatActivity {
 
     private RecyclerView recyclerView;
-    private ChatViewAdapter<Message> chatViewAdapter;
+    private ChatRecyclerViewAdapter<Message> chatViewAdapter;
     private ArrayList<Message> messages = new ArrayList<Message>();
     private Socket mSocket;
     {
@@ -47,7 +47,7 @@ public class ChatActivity extends AppCompatActivity {
 
         Message sample = new Message("1469353441664", "MTC19T", "Hello World!");
         messages.add(sample);
-        chatViewAdapter = new ChatViewAdapter<>(messages, this);
+        chatViewAdapter = new ChatRecyclerViewAdapter<>(messages, this);
         recyclerView.setAdapter(chatViewAdapter);
         handleMessageStream();
     }
