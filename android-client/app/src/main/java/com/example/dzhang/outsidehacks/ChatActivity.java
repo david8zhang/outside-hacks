@@ -41,9 +41,12 @@ public class ChatActivity extends AppCompatActivity {
 
         LinearLayoutManager llm = new LinearLayoutManager(this);
         llm.setOrientation(LinearLayoutManager.VERTICAL);
+        llm.setStackFromEnd(true);
         recyclerView = (RecyclerView)findViewById(R.id.chat_window);
         recyclerView.setLayoutManager(llm);
 
+        Message sample = new Message("1469353441664", "MTC19T", "Hello World!");
+        messages.add(sample);
         chatViewAdapter = new ChatViewAdapter<>(messages, this);
         recyclerView.setAdapter(chatViewAdapter);
         handleMessageStream();
@@ -63,7 +66,7 @@ public class ChatActivity extends AppCompatActivity {
                         JSONObject data = (JSONObject)args[0];
                         Log.d("MESSAGES", data.toString());
                         try {
-                            Message message = new Message(data.getString("from"), data.getString("to"), data.getString("message"));
+                            Message message = new Message(data.getString("from"), data.getString("target"), data.getString("message"));
                             messages.add(message);
                             chatViewAdapter.notifyDataSetChanged();
                         } catch (JSONException e) {
