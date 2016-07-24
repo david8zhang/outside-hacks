@@ -19,4 +19,5 @@
         completions."
     </string>
     <string name="action_submit">Submit</string>
+    <string name="enter_a_message">Enter a message</string>
 </resources>
