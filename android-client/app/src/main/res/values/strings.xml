@@ -1,3 +1,6 @@
 <resources>
     <string name="app_name">OutsideHacks</string>
+    <string name="send_chat_request">Send Chat Request</string>
+    <string name="send_meet_request">Send Meet Request</string>
+    <string name="friends_list">My Friends</string>
 </resources>
