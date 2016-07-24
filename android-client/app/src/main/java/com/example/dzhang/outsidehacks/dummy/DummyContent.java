@@ -6,9 +6,9 @@ import java.util.List;
 import java.util.Map;
 
 /**
- * Helper class for providing sample content for user interfaces created by
+ * Helper class for providing sample username for user interfaces created by
  * Android template wizards.
- * <p>
+ * <p/>
  * TODO: Replace all uses of this class before publishing your app.
  */
 public class DummyContent {
@@ -16,57 +16,65 @@ public class DummyContent {
     /**
      * An array of sample (dummy) items.
      */
-    public static final List<DummyItem> ITEMS = new ArrayList<DummyItem>();
+    public static final List<Friend> ITEMS = new ArrayList<Friend>();
 
     /**
      * A map of sample (dummy) items, by ID.
      */
-    public static final Map<String, DummyItem> ITEM_MAP = new HashMap<String, DummyItem>();
+    public static final Map<String, Friend> ITEM_MAP = new HashMap<String, Friend>();
 
     private static final int COUNT = 25;
 
     static {
         // Add some sample items.
-        for (int i = 1; i <= COUNT; i++) {
-            addItem(createDummyItem(i));
-        }
+        addItem(new Friend("a", "Edward Zhang", "A cool person", 1000, null, null, 1000));
+        addItem(new Friend("b", "Bill Gates", "Not as rich as Edward", 7, null, null, 3));
+        addItem(new Friend("c", "Steve Jobs", "Not as successful as Edward", 7, null, null, 3));
+        addItem(new Friend("d", "Anonymous", "I am anonymous", 7, null, null, 3));
+        addItem(new Friend("e", "Test person #e", "id = e", 7, null, null, 3));
+        addItem(new Friend("f", "Albert", "e = mc squared", 7, null, null, 3));
     }
 
-    private static void addItem(DummyItem item) {
+    private static void addItem(Friend item) {
         ITEMS.add(item);
-        ITEM_MAP.put(item.id, item);
-    }
-
-    private static DummyItem createDummyItem(int position) {
-        return new DummyItem(String.valueOf(position), "Item " + position, makeDetails(position));
+        ITEM_MAP.put(item.userId, item);
     }
 
     private static String makeDetails(int position) {
         StringBuilder builder = new StringBuilder();
         builder.append("Details about Item: ").append(position);
         for (int i = 0; i < position; i++) {
-            builder.append("\nMore details information here.");
+            builder.append("\nMore tagline information here.");
         }
         return builder.toString();
     }
 
     /**
-     * A dummy item representing a piece of content.
+     * A dummy item representing a piece of username.
      */
-    public static class DummyItem {
-        public final String id;
-        public final String content;
-        public final String details;
+    public static class Friend {
+        public final String userId;
+        public final String username;
+        public final String tagline;
+        public final int numFriends;
+        public final String[] friendIds;
+        public final String[] interestedArtists;
+        public final int score;
 
-        public DummyItem(String id, String content, String details) {
-            this.id = id;
-            this.content = content;
-            this.details = details;
+        public Friend(String userId, String username, String tagline, int numFriends,
+                      String[] friendIds, String[] interestedArtists, int score) {
+            this.userId = userId;
+            this.username = username;
+            this.tagline = tagline;
+            this.numFriends = numFriends;
+            this.friendIds = friendIds;
+            this.interestedArtists = interestedArtists;
+            this.score = score;
         }
 
         @Override
         public String toString() {
-            return content;
+            return username;
         }
     }
 }

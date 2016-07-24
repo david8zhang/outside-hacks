@@ -9,26 +9,29 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import com.example.dzhang.outsidehacks.dummy.DummyContent;
-import com.example.dzhang.outsidehacks.dummy.DummyContent.DummyItem;
 
-import java.util.List;
+import com.example.dzhang.outsidehacks.dummy.DummyContent;
 
 /**
  * A fragment representing a list of Items.
- * <p />
+ * <p/>
  * Activities containing this fragment MUST implement the {@link OnListFragmentInteractionListener}
  * interface.
  */
 public class FriendFragment extends Fragment {
 
-    // TODO: Customize parameters
-    private int mColumnCount = 1;
-
     // TODO: Customize parameter argument names
     private static final String ARG_COLUMN_COUNT = "column-count";
+    // TODO: Customize parameters
+    private int mColumnCount = 1;
+    //private OnListFragmentInteractionListener mListener;
 
-    private OnListFragmentInteractionListener mListener;
+    /**
+     * Mandatory empty constructor for the fragment manager to instantiate the
+     * fragment (e.g. upon screen orientation changes).
+     */
+    public FriendFragment() {
+    }
 
     // TODO: Customize parameter initialization
     @SuppressWarnings("unused")
@@ -38,13 +41,6 @@ public class FriendFragment extends Fragment {
         args.putInt(ARG_COLUMN_COUNT, columnCount);
         fragment.setArguments(args);
         return fragment;
-    }
-
-    /**
-     * Mandatory empty constructor for the fragment manager to instantiate the
-     * fragment (e.g. upon screen orientation changes).
-     */
-    public FriendFragment() {
     }
 
     @Override
@@ -70,13 +66,13 @@ public class FriendFragment extends Fragment {
             } else {
                 recyclerView.setLayoutManager(new GridLayoutManager(context, mColumnCount));
             }
-            recyclerView.setAdapter(new MyFriendRecyclerViewAdapter(DummyContent.ITEMS, mListener));
+            recyclerView.setAdapter(new MyFriendRecyclerViewAdapter(DummyContent.ITEMS));
         }
         return view;
     }
 
 
-    @Override
+    /* @Override
     public void onAttach(Context context) {
         super.onAttach(context);
         if (context instanceof OnListFragmentInteractionListener) {
@@ -85,13 +81,13 @@ public class FriendFragment extends Fragment {
             throw new RuntimeException(context.toString()
                     + " must implement OnListFragmentInteractionListener");
         }
-    }
+    }*/
 
-    @Override
+    /*@Override
     public void onDetach() {
         super.onDetach();
-        mListener = null;
-    }
+        //mListener = null;
+    }*/
 
     /**
      * This interface must be implemented by activities that contain this
@@ -103,8 +99,8 @@ public class FriendFragment extends Fragment {
      * "http://developer.android.com/training/basics/fragments/communicating.html"
      * >Communicating with Other Fragments</a> for more information.
      */
-    public interface OnListFragmentInteractionListener {
-        // TODO: Update argument type and name
-        void onListFragmentInteraction(DummyItem item);
-    }
+    /*public interface OnListFragmentInteractionListener {
+        // TODO: Update argument type and username
+        void onListFragmentInteraction(Friend item);
+    }*/
 }

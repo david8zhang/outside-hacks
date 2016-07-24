@@ -6,40 +6,39 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
-import com.example.dzhang.outsidehacks.ItemFragment.OnListFragmentInteractionListener;
-import com.example.dzhang.outsidehacks.dummy.DummyContent.DummyItem;
+import com.example.dzhang.outsidehacks.dummy.DummyContent;
 
 import java.util.List;
 
 /**
- * {@link RecyclerView.Adapter} that can display a {@link DummyItem} and makes a call to the
- * specified {@link OnListFragmentInteractionListener}.
+ * {@link RecyclerView.Adapter} that can display a {@link DummyContent.Friend}
  * TODO: Replace the implementation with code for your data type.
  */
 public class MyFriendRecyclerViewAdapter extends RecyclerView.Adapter<MyFriendRecyclerViewAdapter.ViewHolder> {
 
-    private final List<DummyItem> mValues;
-    private final OnListFragmentInteractionListener mListener;
+    private final List<DummyContent.Friend> mValues;
+    //private final OnListFragmentInteractionListener mListener;
 
-    public MyFriendRecyclerViewAdapter(List<DummyItem> items, OnListFragmentInteractionListener listener) {
+    public MyFriendRecyclerViewAdapter(List<DummyContent.Friend> items) {
         mValues = items;
-        mListener = listener;
+        //mListener = listener;
     }
 
     @Override
     public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext())
-                .inflate(R.layout.fragment_item, parent, false);
+                .inflate(R.layout.fragment_friend, parent, false);
         return new ViewHolder(view);
     }
 
     @Override
     public void onBindViewHolder(final ViewHolder holder, int position) {
         holder.mItem = mValues.get(position);
-        holder.mIdView.setText(mValues.get(position).id);
-        holder.mContentView.setText(mValues.get(position).content);
+        holder.usernameView.setText(mValues.get(position).username);
+        holder.taglineView.setText(mValues.get(position).tagline);
+        holder.distanceView.setText("55m");
 
-        holder.mView.setOnClickListener(new View.OnClickListener() {
+        /*holder.mView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 if (null != mListener) {
@@ -48,7 +47,7 @@ public class MyFriendRecyclerViewAdapter extends RecyclerView.Adapter<MyFriendRe
                     mListener.onListFragmentInteraction(holder.mItem);
                 }
             }
-        });
+        });*/
     }
 
     @Override
@@ -58,20 +57,22 @@ public class MyFriendRecyclerViewAdapter extends RecyclerView.Adapter<MyFriendRe
 
     public class ViewHolder extends RecyclerView.ViewHolder {
         public final View mView;
-        public final TextView mIdView;
-        public final TextView mContentView;
-        public DummyItem mItem;
+        public final TextView usernameView;
+        public final TextView taglineView;
+        public final TextView distanceView;
+        public DummyContent.Friend mItem;
 
         public ViewHolder(View view) {
             super(view);
             mView = view;
-            mIdView = (TextView) view.findViewById(R.id.id);
-            mContentView = (TextView) view.findViewById(R.id.content);
+            usernameView = (TextView) view.findViewById(R.id.username);
+            taglineView = (TextView) view.findViewById(R.id.tagline);
+            distanceView = (TextView) view.findViewById(R.id.distance);
         }
 
         @Override
         public String toString() {
-            return super.toString() + " '" + mContentView.getText() + "'";
+            return super.toString() + " '" + usernameView.getText() + "'";
         }
     }
 }
