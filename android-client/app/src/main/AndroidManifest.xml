@@ -41,7 +41,8 @@
             android:name=".MapsActivity"
             android:label="@string/title_activity_maps"></activity>
         <activity android:name=".FriendList" />
-        <activity android:name=".ChatRequestActivity"></activity>
+        <activity android:name=".ChatRequestActivity" />
+        <activity android:name=".LikedArtistsFormActivity"></activity>
     </application>
 
 </manifest>

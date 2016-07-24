@@ -6,16 +6,18 @@
     tools:context="com.example.dzhang.outsidehacks.MainActivity">
 
     <Button
+
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Go to Map View"
         android:id="@+id/gotomap"/>
 
     <Button
+        android:id="@+id/goToArtistCheckboxes"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/goToChat"
-        android:text="Go to chat window" />
+        android:text="Go to artists" />
+
 
     <Button
         android:id="@+id/goToFriendList"

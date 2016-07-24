@@ -1,5 +1,6 @@
 package com.example.dzhang.outsidehacks;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
@@ -16,6 +17,6 @@ public class FriendList extends AppCompatActivity
 
     @Override
     public void onListFragmentInteraction(Friend item) {
-
+        //Intent intent = new Intent();
     }
 }

@@ -9,17 +9,17 @@ public class Friend {
     public final String tagline;
     public final int numFriends;
     public final String[] friendIds;
-    public final String[] interestedArtists;
+    public final String[] likedArtists;
     public final int score;
 
     public Friend(String userId, String username, String tagline, int numFriends,
-                  String[] friendIds, String[] interestedArtists, int score) {
+                  String[] friendIds, String[] likedArtists, int score) {
         this.userId = userId;
         this.username = username;
         this.tagline = tagline;
         this.numFriends = numFriends;
         this.friendIds = friendIds;
-        this.interestedArtists = interestedArtists;
+        this.likedArtists = likedArtists;
         this.score = score;
     }
 
