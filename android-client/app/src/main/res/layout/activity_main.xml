@@ -6,23 +6,18 @@
     tools:context="com.example.dzhang.outsidehacks.MainActivity">
 
     <Button
-<<<<<<< Updated upstream
+
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Go to Map View"
         android:id="@+id/gotomap"/>
 
     <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/goToChat"
-        android:text="Go to chat window" />
-=======
         android:id="@+id/goToArtistCheckboxes"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Go to artists" />
->>>>>>> Stashed changes
+
 
     <Button
         android:id="@+id/goToFriendList"

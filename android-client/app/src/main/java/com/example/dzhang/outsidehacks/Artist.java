@@ -11,4 +11,9 @@ public class Artist {
         this.artistId = artistId;
         this.name = name;
     }
+
+    @Override
+    public String toString() {
+        return "Artist: " + name;
+    }
 }
