@@ -34,6 +34,7 @@ public class ChatActivity extends AppCompatActivity {
     private ChatRecyclerViewAdapter<Message> chatViewAdapter;
     private ArrayList<Message> messages = new ArrayList<Message>();
     private Socket mSocket;
+    private boolean likeFlag;
     {
         try {
             mSocket = IO.socket(Constants.SOCKET_URL);
@@ -68,15 +69,26 @@ public class ChatActivity extends AppCompatActivity {
                     obj.put("message", message);
                     obj.put("status", "LIKE");
                     mSocket.emit("message", obj.toString());
+                    if(likeFlag) {
+                        Intent toFriends = new Intent(ChatActivity.this, FriendList.class);
+                        ChatActivity.this.startActivity(toFriends);
+                    } else {
+                        likeFlag = true;
+                    }
                     Message render_msg = new Message(Build.ID, username, message, "LIKE");
                     messages.add(render_msg);
                     chatViewAdapter.notifyDataSetChanged();
+                    recyclerView.post(new Runnable() {
+                        @Override
+                        public void run() {
+                            recyclerView.smoothScrollToPosition(chatViewAdapter.getItemCount());
+                        }
+                    });
                 } catch(JSONException e) {
                     e.printStackTrace();
                 }
             }
         });
-
 
         messageCompose = (EditText)findViewById(R.id.enter_message);
         Button submitMsg = (Button)findViewById(R.id.submit_message);
@@ -143,6 +155,13 @@ public class ChatActivity extends AppCompatActivity {
                                         recyclerView.smoothScrollToPosition(chatViewAdapter.getItemCount());
                                     }
                                 });
+                            } else {
+                                if(likeFlag) {
+                                    Intent toFriendsList = new Intent(ChatActivity.this, FriendList.class);
+                                    startActivity(toFriendsList);
+                                } else {
+                                    likeFlag = true;
+                                }
                             }
                         } catch (JSONException e) {
                             e.printStackTrace();
