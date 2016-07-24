@@ -39,6 +39,7 @@
 
         <activity
             android:name=".MapsActivity"
+            android:screenOrientation="portrait"
             android:label="@string/title_activity_maps"></activity>
         <activity android:name=".FriendList" />
         <activity android:name=".ChatRequestActivity" />

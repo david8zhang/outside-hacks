@@ -2,6 +2,7 @@ package com.example.dzhang.outsidehacks;
 
 import android.*;
 import android.Manifest;
+import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.location.Criteria;
 import android.location.Location;
@@ -16,6 +17,8 @@ import android.support.v4.app.FragmentActivity;
 import android.os.Bundle;
 import android.support.v4.content.ContextCompat;
 import android.util.Log;
+import android.view.View;
+import android.widget.ImageButton;
 import android.widget.Toast;
 
 import com.github.nkzawa.emitter.Emitter;
@@ -43,22 +46,32 @@ import java.net.URISyntaxException;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
+import java.util.Map;
 import java.util.UUID;
 
-public class MapsActivity extends FragmentActivity
-        implements OnMapReadyCallback, GoogleApiClient.ConnectionCallbacks, GoogleApiClient.OnConnectionFailedListener {
 
-    private GoogleMap mMap;
-    private HashMap<String, Marker> users = new HashMap<>();
-    private String dummy_user_id = Build.ID;
+public class MapsActivity extends FragmentActivity implements OnMapReadyCallback,
+        GoogleApiClient.ConnectionCallbacks, GoogleApiClient.OnConnectionFailedListener,
+        GoogleMap.OnMarkerClickListener {
+
+    /** Google Permissions constant. */
     private int MY_PERMISSIONS_ACCESS_FINE_LOCATION = 200;
-    private Socket mSocket;
-    private long lastTime;
+
+    /** Google API Variables */
+    private GoogleApiClient mGoogleApiClient;
     private Marker marker;
+    private GoogleMap mMap;
+    private LocationManager mLocationManager;
+
+    /** User to Marker & Marker to User Mappings */
+    private HashMap<String, Marker> users = new HashMap<>();
+
+    private String dummy_user_id = Build.ID;
     private String latitude;
     private String longitude;
-    private GoogleApiClient mGoogleApiClient;
-    private LocationManager mLocationManager;
+    private long lastTime;
+
+    private Socket mSocket;
     {
         try {
             mSocket = IO.socket(Constants.SOCKET_URL);
@@ -85,6 +98,15 @@ public class MapsActivity extends FragmentActivity
         }
         handleLocationIncoming();
         handleLocationBroadcast();
+
+        ImageButton button = (ImageButton)findViewById(R.id.friends_button);
+        button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent toFriendsList = new Intent(MapsActivity.this, FriendList.class);
+                MapsActivity.this.startActivity(toFriendsList);
+            }
+        });
     }
 
     protected void onStart() {
@@ -162,12 +184,14 @@ public class MapsActivity extends FragmentActivity
             try {
                 JSONObject obj = jsonArray.getJSONObject(i);
                 JSONArray location = new JSONArray(obj.getString("location"));
-                double myLat = Double.parseDouble(latitude);
-                double myLng = Double.parseDouble(longitude);
-                float[] results = new float[1];
-                Location.distanceBetween(myLat, myLng, location.getDouble(0), location.getDouble(1), results);
-                if(results[0] < 100) {
-                    arr.add(obj);
+                if(latitude != null && longitude != null) {
+                    double myLat = Double.parseDouble(latitude);
+                    double myLng = Double.parseDouble(longitude);
+                    float[] results = new float[1];
+                    Location.distanceBetween(myLat, myLng, location.getDouble(0), location.getDouble(1), results);
+                    if(results[0] < 100) {
+                        arr.add(obj);
+                    }
                 }
             } catch (JSONException e) {
                 e.printStackTrace();
@@ -205,6 +229,28 @@ public class MapsActivity extends FragmentActivity
                 .position(new LatLng(Double.parseDouble(latitude), Double.parseDouble(longitude)))
                 .title("Me")
                 .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_BLUE)));
+    }
+
+    /**
+     * Override the default action performed on google maps marker click.
+     * @param marker
+     * @return A new marker
+     */
+    @Override
+    public boolean onMarkerClick(Marker marker) {
+        String user_id = null;
+        for (Map.Entry<String, Marker> entry: users.entrySet()) {
+            if(marker.equals(entry.getValue())) {
+                user_id = entry.getKey();
+            }
+        }
+        if(user_id == null) {
+            return false;
+        }
+        Intent chatRequest = new Intent(MapsActivity.this, ChatRequestActivity.class);
+        chatRequest.putExtra("user_id", user_id);
+        MapsActivity.this.startActivity(chatRequest);
+        return true;
     }
 
     /**
@@ -260,7 +306,7 @@ public class MapsActivity extends FragmentActivity
                     obj.put("location", latlng);
                     CameraPosition cameraPosition = new CameraPosition.Builder()
                             .target(new LatLng(location.getLatitude(), location.getLongitude()))
-                            .zoom(15)
+                            .zoom(18)
                             .bearing(0)
                             .tilt(45)
                             .build();
@@ -332,6 +378,7 @@ public class MapsActivity extends FragmentActivity
     @Override
     public void onMapReady(GoogleMap googleMap) {
         mMap = googleMap;
+        mMap.setOnMarkerClickListener(MapsActivity.this);
     }
 
     /**
@@ -339,8 +386,6 @@ public class MapsActivity extends FragmentActivity
      */
     @Override
     protected void onStop() {
-        mGoogleApiClient.disconnect();
-        mSocket.disconnect();
         super.onStop();
     }
 
@@ -349,6 +394,8 @@ public class MapsActivity extends FragmentActivity
      */
     @Override
     protected void onDestroy() {
+        mGoogleApiClient.disconnect();
+        mMap.clear();
         mSocket.disconnect();
         super.onDestroy();
     }
