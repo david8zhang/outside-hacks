@@ -22,12 +22,14 @@ public class ChatViewAdapter <T extends Message> extends RecyclerView.Adapter<Ch
     private Context context;
 
     public ChatViewAdapter(ArrayList<T> messages, Context context) {
+        Log.d("Messages", Integer.toString(messages.size()));
         this.messages = messages;
         this.context = context;
     }
 
     @Override
     public ChatViewAdapter.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+        Log.d("On Create View Holder", "Create viewholder");
         View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.message_bubble, parent, false);
         final ViewHolder vh = new ViewHolder(v);
         return vh;
@@ -57,7 +59,7 @@ public class ChatViewAdapter <T extends Message> extends RecyclerView.Adapter<Ch
 
     @Override
     public int getItemCount() {
-        return 0;
+        return messages.size();
     }
 
     public static class ViewHolder extends RecyclerView.ViewHolder {
